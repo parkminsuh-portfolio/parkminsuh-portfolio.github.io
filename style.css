@@ -1685,7 +1685,11 @@ figcaption {
   display: grid;
   grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr);
   gap: 18px;
-  align-items: stretch;
+  align-items: start;
+}
+
+.architecture-layout .tech-table-wrap {
+  align-self: start;
 }
 
 .diagram-scroll {
@@ -2341,21 +2345,22 @@ figcaption {
 }
 
 .finnect-phone-gallery {
-  grid-template-columns: minmax(220px, 0.58fr) minmax(220px, 0.58fr) minmax(320px, 1fr);
-  align-items: stretch;
+  grid-template-columns: minmax(180px, 0.44fr) minmax(180px, 0.44fr) minmax(340px, 1fr);
+  align-items: start;
 }
 
 .finnect-phone-gallery .app-screen-card img {
-  height: 620px;
+  height: auto;
+  max-height: 540px;
+  padding: 10px;
   object-fit: contain;
   background: #fffdf5;
 }
 
 .finnect-benefit-table {
-  align-self: stretch;
-  display: grid;
-  align-content: center;
-  padding: 10px;
+  align-self: start;
+  display: block;
+  padding: 0;
 }
 
 .finnect-scenario span {
@@ -2752,8 +2757,8 @@ figcaption {
 }
 
 .aigame-output-layout {
-  grid-template-columns: minmax(260px, 0.44fr) minmax(0, 1fr);
-  align-items: stretch;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
 }
 
 .aigame-implementation-layout {
@@ -2765,7 +2770,7 @@ figcaption {
 .aigame-scroll-media img {
   width: 100%;
   height: auto;
-  max-height: 620px;
+  max-height: 460px;
   object-fit: contain;
   background: #f4f1e8;
 }
@@ -2945,6 +2950,14 @@ figcaption {
   align-items: stretch;
 }
 
+.snowflake-model-layout--steps-only {
+  grid-template-columns: 1fr;
+}
+
+.snowflake-model-layout--steps-only .snowflake-process {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
 .snowflake-dashboard-grid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
@@ -3024,6 +3037,10 @@ figcaption {
     radial-gradient(circle at 75% 16%, rgba(229, 57, 53, 0.26), transparent 30%),
     radial-gradient(circle at 20% 100%, rgba(66, 117, 198, 0.2), transparent 34%),
     linear-gradient(135deg, #101722 0%, #162133 48%, #2d1720 100%);
+}
+
+.delisting-hero.case-hero--cover {
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 360px);
 }
 
 .delisting-hero .hero-overlay {
@@ -3160,6 +3177,26 @@ figcaption {
   height: auto;
   object-fit: contain;
   background: #f7f8fb;
+}
+
+.delisting-flow-card--compact {
+  justify-self: end;
+  width: min(100%, 360px);
+  padding: 12px;
+}
+
+.delisting-flow-card--compact img {
+  max-height: 220px;
+}
+
+.feature-section--text-only,
+.result-layout--text-only {
+  grid-template-columns: 1fr;
+}
+
+.feature-section--text-only .feature-copy,
+.result-layout--text-only .result-copy {
+  max-width: 940px;
 }
 
 .delisting-scroll-media {
@@ -3519,6 +3556,10 @@ figcaption {
     border-bottom: 0;
   }
 
+  .snowflake-model-layout--steps-only .snowflake-process {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .aigame-screen-card img,
   .aigame-tool-card img,
   .aigame-scroll-media img,
@@ -3749,6 +3790,10 @@ figcaption {
 
   .confusion-matrix {
     min-width: 560px;
+  }
+
+  .snowflake-model-layout--steps-only .snowflake-process {
+    grid-template-columns: 1fr;
   }
 
   .matrix-head,
