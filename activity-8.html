@@ -1,0 +1,563 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>활동 8 - 재무비율 기반 상장폐지 위험 예측 모델</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="박민서 포트폴리오 홈">
+        <span class="brand-mark">PM</span>
+        <span>박민서 포트폴리오</span>
+      </a>
+      <nav class="site-nav" aria-label="주요 메뉴">
+        <a href="index.html">메인</a>
+        <a href="#problem">문제</a>
+        <a href="#data">데이터</a>
+        <a href="#eda">EDA</a>
+        <a href="#model">모델</a>
+        <a href="#result">성과</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="case-hero case-hero--cover delisting-hero">
+        <div class="hero-overlay"></div>
+        <div class="case-hero__copy">
+          <p class="eyebrow">Activity 08 · Financial AI</p>
+          <h1>재무비율 기반 상장폐지 위험 예측 모델 개발</h1>
+          <p class="hero-lead">
+            코스닥 상장기업의 재무비율 데이터를 수집·전처리하고,
+            정상 기업과 상장폐지 기업의 재무적 차이를 학습해 위험 신호를 예측하는 조기 경보 모델을 개발했습니다.
+          </p>
+          <p class="delisting-tagline">재무제표 원문을 투자자가 이해할 수 있는 위험 예측 신호로 전환</p>
+        </div>
+        <figure class="case-hero__visual delisting-hero__visual">
+          <img src="참고소스/상폐예측/ppt-assets/title-slide.png" alt="재무비율 기반 코스닥 기업 상장폐지 위험 예측 모델 개발 타이틀">
+        </figure>
+        <dl class="project-meta hero-meta">
+          <div>
+            <dt>Project Type</dt>
+            <dd>Financial AI, Machine Learning, Risk Prediction, Financial Ratio Analysis</dd>
+          </div>
+          <div>
+            <dt>My Role</dt>
+            <dd>모델 학습 담당, 모델별 성능 비교, XGBoost 모델 분석, Threshold 조정, Confusion Matrix 해석, 발표</dd>
+          </div>
+          <div>
+            <dt>Tech Stack</dt>
+            <dd>Python, Pandas, NumPy, scikit-learn, XGBoost, Open DART API, KIND Crawling, Matplotlib, Seaborn</dd>
+          </div>
+          <div>
+            <dt>Model</dt>
+            <dd>Logistic Regression, Random Forest, XGBoost 비교 후 XGBoost 최종 선정</dd>
+          </div>
+        </dl>
+      </section>
+
+      <dl class="project-meta project-meta--mobile">
+        <div>
+          <dt>Project Type</dt>
+          <dd>Financial AI, Machine Learning, Risk Prediction, Financial Ratio Analysis</dd>
+        </div>
+        <div>
+          <dt>My Role</dt>
+          <dd>모델 학습 담당, 모델별 성능 비교, XGBoost 모델 분석, Threshold 조정, Confusion Matrix 해석, 발표</dd>
+        </div>
+        <div>
+          <dt>Result</dt>
+          <dd>XGBoost F1-score 0.4186, ROC-AUC 0.9049</dd>
+        </div>
+      </dl>
+
+      <section class="section delisting-section">
+        <div class="two-column two-column--balanced">
+          <div class="section-heading">
+            <p class="eyebrow">Project Introduction</p>
+            <h2>복잡한 재무제표 데이터를 상장폐지 위험 조기 경보 신호로 바꾸는 금융 AI 프로젝트입니다</h2>
+            <p>
+              이 프로젝트는 재무제표 기반 데이터를 정형화하고 머신러닝 모델을 통해 상장폐지 위험을 예측함으로써,
+              개인 투자자가 기업의 위험 신호를 사전에 파악할 수 있는 데이터 기반 리스크 판단 구조를 만드는 것을 목표로 했습니다.
+            </p>
+          </div>
+          <div class="insight-panel delisting-intro-panel">
+            <span class="panel-label">One Line</span>
+            <h3>재무비율 30개 Feature를 기반으로 코스닥 기업의 상장폐지 위험 가능성을 예측하는 ML 모델</h3>
+            <p>
+              결과물이 눈에 보이는 앱은 아니지만, 데이터 수집, 전처리, EDA, 모델 비교, 성능 해석까지 머신러닝 프로젝트의 전체 흐름을 수행했습니다.
+            </p>
+          </div>
+        </div>
+        <div class="process-flow process-flow--four delisting-process" aria-label="상장폐지 예측 모델 개발 흐름">
+          <article>
+            <span>Step 01</span>
+            <strong>데이터 수집</strong>
+            <p>KIND 크롤링과 Open DART API로 기업 목록과 재무제표를 수집했습니다.</p>
+          </article>
+          <article>
+            <span>Step 02</span>
+            <strong>전처리</strong>
+            <p>비율화, 결측치 대체, Signed log1p, RobustScaler를 적용했습니다.</p>
+          </article>
+          <article>
+            <span>Step 03</span>
+            <strong>EDA</strong>
+            <p>결측치, 분포, 상관관계, 라벨별 차이를 시각적으로 검증했습니다.</p>
+          </article>
+          <article>
+            <span>Step 04</span>
+            <strong>모델 검증</strong>
+            <p>세 모델을 비교하고 XGBoost의 Confusion Matrix를 해석했습니다.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="problem" class="section delisting-section">
+        <div class="section-heading">
+          <p class="eyebrow">Problem Definition</p>
+          <h2>상장폐지는 개인 투자자에게 회복 불가능한 손실을 만들 수 있습니다</h2>
+          <p>
+            개인 투자자는 기관이나 외국인 투자자보다 공시 데이터와 재무제표를 해석할 수 있는 정보 접근성과 분석 역량이 부족한 경우가 많습니다.
+            상장폐지 발생 후에는 투자금 전액 손실에 가까운 치명적 결과로 이어질 수 있기 때문에, 사전에 위험 신호를 포착하는 구조가 필요했습니다.
+          </p>
+        </div>
+        <div class="problem-comparison">
+          <article>
+            <span class="panel-label">Investor Pain</span>
+            <h3>재무제표 원문은 위험 판단으로 바로 이어지기 어렵습니다</h3>
+            <p>
+              재무 항목과 공시 데이터는 많지만 핵심 정보를 추려내기 어렵고, 기업의 재무 상태 악화를 직관적으로 판단하기 어렵습니다.
+            </p>
+          </article>
+          <article>
+            <span class="panel-label">Goal</span>
+            <h3>정상 기업과 상폐 기업의 재무 패턴을 모델이 학습하도록 설계했습니다</h3>
+            <p>
+              단순 재무제표 조회가 아니라, 특정 기업이 상장폐지 위험군에 가까운지 판단하는 예측 신호를 만드는 것이 목표였습니다.
+            </p>
+          </article>
+        </div>
+        <div class="formula-card delisting-problem-line">
+          <strong>문제 재정의: 투자자에게 필요한 것은 재무제표 원문이 아니라, 기업의 재무 상태가 위험한지 판단할 수 있는 예측 신호입니다.</strong>
+        </div>
+      </section>
+
+      <section id="architecture" class="section delisting-section">
+        <div class="section-heading">
+          <p class="eyebrow">ML Pipeline</p>
+          <h2>데이터 수집부터 최종 판단까지의 머신러닝 파이프라인을 구축했습니다</h2>
+          <p>
+            상장폐지 예측을 위해 데이터 수집, 전처리, Feature Engineering, EDA, 모델 학습, 성능 평가를 하나의 흐름으로 구성했습니다.
+          </p>
+        </div>
+        <figure class="wide-media delisting-wide-media delisting-scroll-media">
+          <img src="참고소스/상폐예측/ppt-assets/system-architecture.png" alt="상장폐지 예측 프로젝트 전체 시스템 아키텍처">
+          <figcaption>전체 구조: 데이터 수집 → 전처리 → 섹터 군집화 → 모델 학습/앙상블 → 최종 판단</figcaption>
+        </figure>
+        <div class="component-grid delisting-algorithm-grid">
+          <article>
+            <span class="panel-label">Algorithm</span>
+            <h3>Logistic Regression</h3>
+            <p>해석이 쉬운 선형 baseline 모델로 사용했습니다.</p>
+          </article>
+          <article>
+            <span class="panel-label">Algorithm</span>
+            <h3>Random Forest</h3>
+            <p>비선형 패턴을 안정적으로 학습하는 앙상블 모델로 비교했습니다.</p>
+          </article>
+          <article>
+            <span class="panel-label">Algorithm</span>
+            <h3>XGBoost</h3>
+            <p>복잡한 재무비율 데이터의 비선형 관계를 학습하는 최종 모델로 선택했습니다.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="data" class="section delisting-section">
+        <div class="section-heading">
+          <p class="eyebrow">Data Collection</p>
+          <h2>KIND 크롤링과 Open DART API 기반으로 10개년 재무 데이터셋을 구축했습니다</h2>
+          <p>
+            상장폐지 기업과 정상 기업의 재무적 특성을 비교하기 위해 기업 목록과 재무제표 데이터를 수집했습니다.
+            원천 데이터는 JSON과 CSV 구조가 혼재되어 있어, 분석 가능한 재무비율 데이터셋으로 정형화하는 과정이 필요했습니다.
+          </p>
+        </div>
+        <div class="delisting-stat-grid">
+          <article>
+            <span>정상 기업</span>
+            <strong>2,766</strong>
+            <p>개</p>
+          </article>
+          <article>
+            <span>상장폐지 기업</span>
+            <strong>354</strong>
+            <p>개</p>
+          </article>
+          <article>
+            <span>구축 파일</span>
+            <strong>128,998</strong>
+            <p>개</p>
+          </article>
+          <article>
+            <span>분석 데이터</span>
+            <strong>16.7GB</strong>
+            <p>2015~2025년</p>
+          </article>
+        </div>
+        <div class="feature-section">
+          <div class="feature-copy">
+            <p class="eyebrow">Collection Flow</p>
+            <h2>KIND 목록 수집과 DART 재무제표 호출을 연결했습니다</h2>
+            <ul class="check-list">
+              <li>KIND 크롤링으로 상장·상폐 기업 목록 확보</li>
+              <li>Open DART API 호출로 기업별 재무제표 데이터 수집</li>
+              <li>기업별 JSON/CSV 저장 후 재무비율 데이터셋으로 정리</li>
+              <li>API 요청 제한, 데이터 누락, 항목명 불일치를 보완</li>
+            </ul>
+          </div>
+          <figure class="wide-media delisting-flow-card">
+            <img src="참고소스/상폐예측/ppt-assets/data-collection-flow.png" alt="KIND 크롤링과 Open DART API 기반 데이터 수집 흐름">
+            <figcaption>KIND 크롤링 → Open DART API → 데이터셋 구축</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section id="features" class="section delisting-section">
+        <div class="section-heading">
+          <p class="eyebrow">Input Data</p>
+          <h2>재무비율 30개 Feature로 기업의 재무 상태를 표현했습니다</h2>
+          <p>
+            기업의 재무 상태를 다각도로 반영하기 위해 성장성, 수익성, 안정성, 활동성, 가치평가 영역의 핵심 재무비율을 구성했습니다.
+            원본 재무비율은 결측치, 극단값, 기업 규모 차이의 영향을 받기 때문에 그대로 학습하기 어렵다고 판단했습니다.
+          </p>
+        </div>
+        <div class="delisting-feature-layout">
+          <figure class="wide-media delisting-feature-card">
+            <img src="참고소스/상폐예측/ppt-assets/feature-structure.png" alt="재무비율 기반 입력 데이터 구조와 문제점">
+            <figcaption>재무비율 기반 입력 데이터 구조와 원본 데이터의 문제점</figcaption>
+          </figure>
+          <div class="component-grid delisting-issue-grid">
+            <article>
+              <span class="panel-label">Problem 01</span>
+              <h3>절대값 왜곡</h3>
+              <p>기업 규모에 따라 값이 크게 달라져 대기업과 소기업의 규모 차이가 모델에 과도하게 반영될 수 있었습니다.</p>
+            </article>
+            <article>
+              <span class="panel-label">Problem 02</span>
+              <h3>결측치 존재</h3>
+              <p>일부 기업은 특정 재무 항목이 공시되지 않거나 항목명이 다르게 표기되었습니다.</p>
+            </article>
+            <article>
+              <span class="panel-label">Problem 03</span>
+              <h3>분포 왜곡</h3>
+              <p>재무비율은 극단값과 Long-tail 분포가 자주 나타나 모델 성능을 저하시킬 수 있었습니다.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="preprocessing" class="section delisting-section">
+        <div class="section-heading">
+          <p class="eyebrow">Preprocessing</p>
+          <h2>기업 크기가 아니라 재무 상태의 패턴을 학습하도록 입력 구조를 재설계했습니다</h2>
+          <p>
+            금융 데이터는 기업 규모, 이상치, 결측치의 영향을 크게 받습니다.
+            따라서 비율화, 결측치 대체, Signed log1p 변환, RobustScaler를 순서대로 적용했습니다.
+          </p>
+        </div>
+        <div class="process-flow process-flow--four delisting-process" aria-label="전처리 과정">
+          <article>
+            <span>01</span>
+            <strong>절대값 항목 비율화</strong>
+            <p>유형자산, 감가상각비 등 규모성 지표를 총자산 대비 비율로 변환했습니다.</p>
+          </article>
+          <article>
+            <span>02</span>
+            <strong>결측치 대체</strong>
+            <p>Feature별 결측치는 중앙값으로 대체하고 완전 결측 컬럼은 0 처리했습니다.</p>
+          </article>
+          <article>
+            <span>03</span>
+            <strong>Signed log1p</strong>
+            <p>sign(x) × log1p(|x|)로 음수 속성을 유지하며 Long-tail을 완화했습니다.</p>
+          </article>
+          <article>
+            <span>04</span>
+            <strong>RobustScaler</strong>
+            <p>중앙값과 IQR 기반 스케일링으로 극단값 영향을 줄였습니다.</p>
+          </article>
+        </div>
+        <figure class="wide-media delisting-wide-media">
+          <img src="참고소스/상폐예측/ppt-assets/preprocessing-pipeline.png" alt="재무 데이터 입력 구조 재설계 및 전처리 과정">
+          <figcaption>재무비율 → 비율화 → 결측치 대체 → Log 변환 → Scaling, 최종 30 Features</figcaption>
+        </figure>
+      </section>
+
+      <section id="eda" class="section delisting-section">
+        <div class="section-heading">
+          <p class="eyebrow">EDA Validation</p>
+          <h2>정제된 데이터의 특성을 시각적으로 검증했습니다</h2>
+          <p>
+            결측치 분포, 정상 기업과 상장폐지 기업의 주요 재무비율 분포, 상관관계와 산점도를 확인해 전처리 결과와 데이터 특성을 점검했습니다.
+          </p>
+        </div>
+        <div class="delisting-eda-grid">
+          <figure class="wide-media delisting-eda-card">
+            <img src="참고소스/상폐예측/eda_20260402_223436/05_missing_rate_top30.png" alt="재무비율 결측치 분포 분석 그래프">
+            <figcaption>Feature별 결측률을 확인해 결측치 처리 전략이 필요한 지표를 파악했습니다.</figcaption>
+          </figure>
+          <figure class="wide-media delisting-eda-card">
+            <img src="참고소스/상폐예측/eda_20260402_223436/08_boxplots_by_label.png" alt="정상 기업과 상장폐지 기업 재무비율 분포 비교 Boxplot">
+            <figcaption>정상 기업과 상폐 기업의 주요 재무비율 분포 차이를 비교했습니다.</figcaption>
+          </figure>
+          <figure class="wide-media delisting-eda-card">
+            <img src="참고소스/상폐예측/eda_20260402_223436/09_histograms_core_ratios.png" alt="핵심 재무비율 히스토그램">
+            <figcaption>재무비율 데이터의 Long-tail과 분포 왜곡을 확인했습니다.</figcaption>
+          </figure>
+          <figure class="wide-media delisting-eda-card">
+            <img src="참고소스/상폐예측/eda_20260402_223436/10_scatter_profitability_vs_stability.png" alt="수익성과 안정성 재무비율 산점도">
+            <figcaption>수익성·안정성 지표 사이의 관계와 라벨 분포를 확인했습니다.</figcaption>
+          </figure>
+        </div>
+        <div class="achievement-grid delisting-insight-grid">
+          <article>
+            <strong>결측치 전략 필요</strong>
+            <span>일부 Feature는 결측률이 높아 중앙값 대체와 컬럼별 처리 기준이 필요했습니다.</span>
+          </article>
+          <article>
+            <strong>라벨별 분포 차이</strong>
+            <span>상폐 기업은 일부 수익성·안정성 지표에서 정상 기업과 다른 분포를 보였습니다.</span>
+          </article>
+          <article>
+            <strong>이상치와 Long-tail</strong>
+            <span>극단값이 많은 재무 데이터에는 Robust한 전처리와 비선형 모델이 적합했습니다.</span>
+          </article>
+          <article>
+            <strong>불균형 데이터</strong>
+            <span>라벨 1 위험 기업이 적어 Precision, Recall, F1-score 중심 평가가 필요했습니다.</span>
+          </article>
+        </div>
+      </section>
+
+      <section id="model" class="section delisting-section">
+        <div class="section-heading">
+          <p class="eyebrow">Model Comparison</p>
+          <h2>Logistic Regression, Random Forest, XGBoost를 비교하고 최종 모델을 선정했습니다</h2>
+          <p>
+            상장폐지 위험 기업을 예측하기 위해 세 가지 모델을 학습하고 Precision, Recall, F1-score를 기준으로 비교했습니다.
+            단순 정확도보다 오탐과 미탐의 균형을 확인하는 것이 중요했습니다.
+          </p>
+        </div>
+        <div class="delisting-model-layout">
+          <div class="analysis-table-card">
+            <span class="panel-label">Model Metrics</span>
+            <table class="analysis-table">
+              <thead>
+                <tr>
+                  <th>Model</th>
+                  <th>Precision</th>
+                  <th>Recall</th>
+                  <th>F1-score</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Logistic Regression</td>
+                  <td>0.1935</td>
+                  <td>0.5000</td>
+                  <td>0.2791</td>
+                </tr>
+                <tr>
+                  <td>Random Forest</td>
+                  <td>0.3913</td>
+                  <td>0.3750</td>
+                  <td>0.3830</td>
+                </tr>
+                <tr class="selected-row">
+                  <td>XGBoost</td>
+                  <td>0.4737</td>
+                  <td>0.3750</td>
+                  <td>0.4186</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="f1-chart-card">
+            <span class="panel-label">F1-score Comparison</span>
+            <div class="score-bar">
+              <div>
+                <strong>Logistic Regression</strong>
+                <span>0.2791</span>
+              </div>
+              <i style="width: 67%;"></i>
+            </div>
+            <div class="score-bar">
+              <div>
+                <strong>Random Forest</strong>
+                <span>0.3830</span>
+              </div>
+              <i style="width: 91%;"></i>
+            </div>
+            <div class="score-bar score-bar--selected">
+              <div>
+                <strong>XGBoost</strong>
+                <span>0.4186</span>
+              </div>
+              <i style="width: 100%;"></i>
+            </div>
+          </div>
+        </div>
+        <div class="formula-card delisting-problem-line">
+          <strong>XGBoost는 Precision과 F1-score에서 가장 높은 성능을 보여 최종 모델로 선택했습니다.</strong>
+          <p>기본 임계값 0.5를 고정하지 않고 Precision-Recall 균형을 고려해 Threshold를 탐색했습니다.</p>
+        </div>
+      </section>
+
+      <section id="final-model" class="section delisting-section">
+        <div class="section-heading">
+          <p class="eyebrow">Final Model Analysis</p>
+          <h2>Confusion Matrix로 위험 탐지와 오탐지 구조를 해석했습니다</h2>
+          <p>
+            최종 모델인 XGBoost는 복잡한 재무비율 데이터의 비선형 패턴을 학습하는 데 적합했고,
+            ROC-AUC 0.9049로 위험 기업 구분 가능성을 확인했습니다.
+          </p>
+        </div>
+        <div class="final-model-layout">
+          <div class="metric-card-grid">
+            <article>
+              <span>Precision</span>
+              <strong>0.4737</strong>
+            </article>
+            <article>
+              <span>Recall</span>
+              <strong>0.3750</strong>
+            </article>
+            <article>
+              <span>F1-score</span>
+              <strong>0.4186</strong>
+            </article>
+            <article>
+              <span>ROC-AUC</span>
+              <strong>0.9049</strong>
+            </article>
+          </div>
+          <div class="confusion-card" aria-label="XGBoost Confusion Matrix">
+            <span class="panel-label">Confusion Matrix</span>
+            <div class="confusion-matrix">
+              <div class="matrix-corner"></div>
+              <div class="matrix-head">Predicted 정상</div>
+              <div class="matrix-head matrix-head--risk">Predicted 위험</div>
+              <div class="matrix-side">Actual 정상</div>
+              <div class="matrix-cell matrix-cell--safe">
+                <span>TN</span>
+                <strong>3385</strong>
+                <em>정상 기업 식별 성공</em>
+              </div>
+              <div class="matrix-cell matrix-cell--warn">
+                <span>FP</span>
+                <strong>10</strong>
+                <em>정상 기업 오탐지</em>
+              </div>
+              <div class="matrix-side matrix-side--risk">Actual 위험</div>
+              <div class="matrix-cell matrix-cell--miss">
+                <span>FN</span>
+                <strong>15</strong>
+                <em>위험 기업 미탐지</em>
+              </div>
+              <div class="matrix-cell matrix-cell--hit">
+                <span>TP</span>
+                <strong>9</strong>
+                <em>위험 기업 탐지 성공</em>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="component-grid delisting-interpret-grid">
+          <article>
+            <span class="panel-label">Strength</span>
+            <h3>정상 기업 대부분을 정상으로 분류</h3>
+            <p>TN 3385로 불필요한 경고를 줄이는 방향의 안정성을 확인했습니다.</p>
+          </article>
+          <article>
+            <span class="panel-label">Risk</span>
+            <h3>미탐지 개선 필요</h3>
+            <p>실제 위험 기업 15건을 놓쳤기 때문에 조기 경보 모델로 발전하려면 Recall 개선이 중요합니다.</p>
+          </article>
+          <article>
+            <span class="panel-label">Conclusion</span>
+            <h3>초기 가능성 확인</h3>
+            <p>실무 적용 수준으로 가기 위해 데이터 확장과 threshold 고도화가 필요하다는 결론을 얻었습니다.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="roadmap" class="section delisting-section">
+        <div class="section-heading">
+          <p class="eyebrow">Roadmap</p>
+          <h2>데이터 확장과 모델 고도화를 통해 실전형 리스크 엔진으로 발전시킬 계획입니다</h2>
+          <p>
+            현재 모델은 재무비율 기반 초기 모델입니다. 상장폐지는 공시, 시장 가격, 거래량, 거시경제 흐름, 산업 특성 등 다양한 요인의 영향을 받기 때문에 입력 데이터를 확장하고 모델 구조를 고도화할 계획입니다.
+          </p>
+        </div>
+        <div class="feature-section">
+          <div class="feature-copy">
+            <p class="eyebrow">Improvement Plan</p>
+            <h2>성능 개선과 입력 고도화를 함께 추진합니다</h2>
+            <ul class="check-list">
+              <li>Group Split 적용으로 시계열 데이터 누수 방지</li>
+              <li>Threshold 세분화와 위험 경고 등급 조정</li>
+              <li>LightGBM, CatBoost 추가 비교 및 Bayesian Optimization</li>
+              <li>공시 텍스트, 거시경제 변수, 시계열 파생 변수 결합</li>
+              <li>산업 유사도 기반 섹터 군집화와 군집별 독립 모델 학습</li>
+            </ul>
+          </div>
+          <figure class="wide-media delisting-roadmap-card">
+            <img src="참고소스/상폐예측/ppt-assets/roadmap-slide.png" alt="상장폐지 예측 모델 향후 개선 및 구현 계획 로드맵">
+            <figcaption>6월~10월 모델 성능 개선과 데이터 확장 로드맵</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section id="result" class="section delisting-section">
+        <div class="section-heading">
+          <p class="eyebrow">Result</p>
+          <h2>재무 데이터 수집부터 모델 성능 검증까지 수행한 금융 AI 프로젝트입니다</h2>
+          <p>
+            재무제표와 공시 기반 데이터를 수집하고, 재무비율 30개 Feature를 구성하여 상장폐지 위험 예측 모델을 개발했습니다.
+            데이터 수집, 전처리, EDA, 모델 학습, 성능 비교, Confusion Matrix 분석까지 전체 과정을 수행했습니다.
+          </p>
+        </div>
+        <div class="result-layout">
+          <div class="result-copy">
+            <h3>주요 성과</h3>
+            <ul class="check-list">
+              <li>KIND 크롤링과 Open DART API 기반 대규모 재무 데이터 수집</li>
+              <li>정상 기업 2,766개, 상장폐지 기업 354개 데이터 구축</li>
+              <li>성장성, 수익성, 안정성, 활동성, 가치평가 기반 30개 재무비율 Feature 구성</li>
+              <li>비율화, 결측치 대체, Signed log1p, RobustScaler 전처리 적용</li>
+              <li>Logistic Regression, Random Forest, XGBoost 모델 성능 비교</li>
+              <li>XGBoost 최종 모델 F1-score 0.4186, ROC-AUC 0.9049 달성</li>
+            </ul>
+          </div>
+          <figure class="wide-media delisting-result-card">
+            <img src="참고소스/상폐예측/ppt-assets/project-result-summary.png" alt="재무비율 기반 상장폐지 위험 예측 모델 결과 요약">
+            <figcaption>재무제표 기반 상장폐지 예측 모델 구축과 실무형 리스크 탐지 가능성 확인</figcaption>
+          </figure>
+        </div>
+        <div class="delisting-lesson-card">
+          <span class="panel-label">What I Learned</span>
+          <h3>AI 모델 개발에서 가장 중요한 것은 모델 자체보다 데이터 수집과 전처리였습니다</h3>
+          <p>
+            재무 데이터는 결측치, 이상치, 분포 왜곡, 기업 규모 차이가 크기 때문에 문제에 맞는 Feature 설계와 전처리 전략이 모델 성능에 직접적인 영향을 준다는 점을 체감했습니다.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Park Minseo Portfolio</p>
+    </footer>
+  </body>
+</html>

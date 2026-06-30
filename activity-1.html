@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>활동 1 - 깨비 할머니 통장</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="박민서 포트폴리오 홈">
+        <span class="brand-mark">PM</span>
+        <span>박민서 포트폴리오</span>
+      </a>
+      <nav class="site-nav" aria-label="주요 메뉴">
+        <a href="index.html">메인</a>
+        <a href="#features">기능</a>
+        <a href="#technology">기술</a>
+        <a href="#result">성과</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="case-hero case-hero--cover">
+        <div class="hero-overlay"></div>
+        <div class="case-hero__copy">
+          <p class="eyebrow">Activity 01 · AI FinTech Mobile App</p>
+          <h1>깨비 할머니 통장</h1>
+          <p class="hero-lead">
+            종이통장, 이체전표, 서명처럼 어르신에게 익숙한 금융 행동을 AI 모바일뱅킹 경험으로 옮긴 시니어 금융 서비스입니다.
+          </p>
+        </div>
+        <figure class="case-hero__visual">
+          <img src="참고소스/깨비할머니통장/표지.png" alt="깨비 할머니 통장 앱을 확인하는 어르신 전체 사진">
+        </figure>
+        <dl class="project-meta hero-meta">
+          <div>
+            <dt>Project Type</dt>
+            <dd>Senior Banking UX, AI OCR, Signature Verification</dd>
+          </div>
+          <div>
+            <dt>My Role</dt>
+            <dd>사용자 조사, 서비스 기획, Flutter 앱 구현, AI 기술 검증, 최종 발표</dd>
+          </div>
+          <div>
+            <dt>Tech Stack</dt>
+            <dd>Flutter, Firebase, Python Flask, ChatGPT Vision API, Siamese Network</dd>
+          </div>
+          <div>
+            <dt>Achievement</dt>
+            <dd>2025 KB국민은행 Future Finance A.I. Challenge 최우수상 수상</dd>
+          </div>
+        </dl>
+      </section>
+
+      <dl class="project-meta project-meta--mobile">
+        <div>
+          <dt>Project Type</dt>
+          <dd>Senior Banking UX, AI OCR, Signature Verification</dd>
+        </div>
+        <div>
+          <dt>My Role</dt>
+          <dd>사용자 조사, 서비스 기획, Flutter 앱 구현, AI 기술 검증, 최종 발표</dd>
+        </div>
+        <div>
+          <dt>Tech Stack</dt>
+          <dd>Flutter, Firebase, Python Flask, ChatGPT Vision API, Siamese Network</dd>
+        </div>
+        <div>
+          <dt>Achievement</dt>
+          <dd>2025 KB국민은행 Future Finance A.I. Challenge 최우수상 수상</dd>
+        </div>
+      </dl>
+
+      <section class="section section--intro">
+        <div class="section-heading">
+          <p class="eyebrow">Problem & Research</p>
+          <h2>글씨 크기보다 더 큰 문제는 불안과 신뢰였습니다</h2>
+        </div>
+        <div class="two-column">
+          <div>
+            <p>
+              고령층을 위한 금융 앱은 화면 글씨를 키우는 것만으로 해결되지 않는다고 보았습니다.
+              어르신들은 복잡한 화면, 계좌번호 입력 실수, 눈에 보이지 않는 거래 과정에서 더 큰 불안을 느끼고 있었습니다.
+            </p>
+            <p>
+              서울 동작구 흑석동 주민센터 컴퓨터반 교실의 65세 이상 어르신을 대상으로 설문과 인터뷰를 진행했고,
+              필요한 것은 더 많은 기능이 아니라 익숙하게 확인하고, 실수 없이 처리되며, 받을 돈을 놓치지 않게 해주는 서비스라는 결론을 얻었습니다.
+            </p>
+          </div>
+          <div class="quote-list" aria-label="설문 응답자 인용">
+            <blockquote>화면이 복잡해서 어렵다.</blockquote>
+            <blockquote>계좌번호를 잘못 입력할까 불안하다.</blockquote>
+            <blockquote>통장도 없고, 눈에 보이는 직원도 없으니 불안하고 못 믿겠다.</blockquote>
+          </div>
+        </div>
+        <div class="survey-gallery">
+          <img src="참고소스/깨비할머니통장/설문조사지1.png" alt="현장조사 설문조사지 1번">
+          <img src="참고소스/깨비할머니통장/설문조사지2.png" alt="현장조사 설문조사지 2번">
+          <img src="참고소스/깨비할머니통장/설문조사지3.png" alt="현장조사 설문조사지 3번">
+        </div>
+      </section>
+
+      <section id="features" class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Core Features</p>
+          <h2>익숙한 금융 경험을 앱 흐름으로 바꾼 세 가지 기능</h2>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card">
+            <span>01</span>
+            <h3>종이통장 UI</h3>
+            <p>예금주, 계좌번호, 거래일자, 입출금 내역, 잔액을 실제 종이통장과 비슷한 위치에 배치했습니다.</p>
+          </article>
+          <article class="feature-card">
+            <span>02</span>
+            <h3>손글씨 이체</h3>
+            <p>종이에 은행명, 계좌번호, 예금주, 금액을 쓰고 촬영하면 AI가 이체 정보를 자동 입력합니다.</p>
+          </article>
+          <article class="feature-card">
+            <span>03</span>
+            <h3>복지 지원금 관리</h3>
+            <p>기초연금 입금을 자동으로 감지하고 통장, 카드, 서비스로 받을 수 있는 혜택을 구분했습니다.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section feature-section">
+        <div class="feature-copy">
+          <p class="eyebrow">Feature 01</p>
+          <h2>내 통장처럼 보이는 종이통장 UI</h2>
+          <p>
+            앱을 열었을 때 “내 통장 같다”고 느낄 수 있도록 실제 통장 이미지와 거래 내역 화면을 연결했습니다.
+            금액을 터치하면 숫자만 보여주는 대신 지폐와 동전 이미지로 금액을 다시 보여주어 이해를 돕습니다.
+          </p>
+        </div>
+        <div class="image-flow image-flow--three">
+          <figure>
+            <img src="참고소스/깨비할머니통장/종이통장.png" alt="실제 종이통장">
+            <figcaption>실제 종이통장</figcaption>
+          </figure>
+          <figure class="mockup-card">
+            <div class="device-mockup">
+              <img class="mockup-frame" src="참고소스/깨비할머니통장/phone-mockup-clean.png" alt="" aria-hidden="true">
+              <img class="mockup-screen" src="참고소스/깨비할머니통장/종이통장UI1.png" alt="종이통장 형태의 앱 거래 내역 화면">
+            </div>
+            <figcaption>통장형 거래 내역</figcaption>
+          </figure>
+          <figure>
+            <img src="참고소스/깨비할머니통장/종이통장UI2.png" alt="금액을 지폐와 동전 이미지로 보여주는 화면">
+            <figcaption>금액 시각화</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section feature-section feature-section--reverse feature-section--process">
+        <div class="feature-copy">
+          <p class="eyebrow">Feature 02</p>
+          <h2>쓰기와 확인의 흐름으로 바꾼 손글씨 이체</h2>
+          <p>
+            은행 창구의 이체전표에서 착안해 작은 키패드 입력 부담을 줄였습니다.
+            어르신이 종이에 정보를 쓰고 촬영하면 AI가 필요한 항목을 인식해 이체 확인 화면에 자동 입력합니다.
+          </p>
+        </div>
+        <div class="transfer-flow" aria-label="손글씨 이체 진행 과정">
+          <figure class="flow-step flow-step--write">
+            <img src="참고소스/깨비할머니통장/손글씨작성.png" alt="종이에 이체 정보를 손글씨로 작성하는 장면">
+            <figcaption>
+              <strong>01. 작성</strong>
+              <span>종이에 은행명, 계좌번호, 예금주, 금액을 씁니다.</span>
+            </figcaption>
+          </figure>
+          <div class="flow-arrow" aria-hidden="true">→</div>
+          <figure class="flow-step flow-step--capture">
+            <img src="참고소스/깨비할머니통장/손글씨촬영.png" alt="휴대폰 카메라로 이체 정보를 촬영하는 장면">
+            <figcaption>
+              <strong>02. 촬영</strong>
+              <span>앱에서 이체전표를 촬영합니다.</span>
+            </figcaption>
+          </figure>
+          <div class="flow-arrow" aria-hidden="true">→</div>
+          <figure class="flow-step flow-step--confirm">
+            <img src="참고소스/깨비할머니통장/이체화면.jpg" alt="AI가 추출한 이체 정보가 자동 입력된 화면">
+            <figcaption>
+              <strong>03. 확인</strong>
+              <span>AI가 추출한 정보를 확인하고 이체를 진행합니다.</span>
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section feature-section">
+        <div class="feature-copy">
+          <p class="eyebrow">Feature 03</p>
+          <h2>받을 돈을 놓치지 않게 돕는 복지 지원금 관리</h2>
+          <p>
+            현장 조사에서 어르신들이 기초연금 입금 여부를 확인하기 위해 직접 은행에 가는 경우가 많다는 점을 확인했습니다.
+            앱은 통장 내역에서 기초연금 입금을 강조하고, 지역 복지혜택을 통장, 카드, 서비스로 나누어 보여줍니다.
+          </p>
+        </div>
+        <div class="phone-gallery">
+          <img src="참고소스/깨비할머니통장/그림5.jpg" alt="기초연금 입금 확인 화면">
+          <img src="참고소스/깨비할머니통장/그림7.jpg" alt="카드형 복지 혜택 화면">
+          <img src="참고소스/깨비할머니통장/그림8.jpg" alt="서비스형 복지 혜택 화면">
+        </div>
+      </section>
+
+      <section id="technology" class="section tech-section">
+        <div class="section-heading">
+          <p class="eyebrow">Architecture & Stack</p>
+          <h2>Flutter 앱, Firebase, Python Flask AI 서버로 나눈 구현 구조</h2>
+          <p>
+            사용자는 Flutter 기반 앱에서 인증, 거래 내역 조회, 이체전표 및 서명 이미지 업로드를 수행합니다.
+            Firebase는 인증과 데이터 저장, 파일 관리를 담당하고, AI 기능은 Python Flask API 서버로 분리했습니다.
+          </p>
+        </div>
+        <figure class="wide-media wide-media--diagram">
+          <img src="참고소스/깨비할머니통장/그림9.png" alt="깨비 할머니 통장 시스템 아키텍처">
+          <figcaption>시스템 아키텍처</figcaption>
+        </figure>
+        <div class="stack-grid">
+          <article>
+            <h3>Frontend</h3>
+            <p>Flutter 3, Provider 패턴, 고령층 사용자를 위한 커스텀 위젯</p>
+          </article>
+          <article>
+            <h3>Backend</h3>
+            <p>Firebase Authentication, Cloud Firestore, Firebase Storage</p>
+          </article>
+          <article>
+            <h3>AI Server</h3>
+            <p>Python Flask API, ChatGPT Vision API OCR, Siamese Network</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section validation-section">
+        <div class="section-heading">
+          <p class="eyebrow">AI OCR Validation</p>
+          <h2>189건, 1323단어로 검증한 필기체 인식</h2>
+        </div>
+        <div class="metric-grid">
+          <article>
+            <strong>98.2%</strong>
+            <span>계좌번호 인식 성공률</span>
+          </article>
+          <article>
+            <strong>94.5%</strong>
+            <span>예금주 인식 성공률</span>
+          </article>
+          <article>
+            <strong>97.8%</strong>
+            <span>금액 인식 성공률</span>
+          </article>
+          <article>
+            <strong>96.8%</strong>
+            <span>핵심 정보 평균 인식률</span>
+          </article>
+        </div>
+        <div class="two-column two-column--media">
+          <figure class="wide-media">
+            <img src="참고소스/깨비할머니통장/그림11.png" alt="손글씨 이체 정보 테스트 이미지 모음">
+            <figcaption>직접 수집한 손글씨 이체 정보 테스트 이미지</figcaption>
+          </figure>
+          <div>
+            <h3>기술 검증 및 선택</h3>
+            <p>
+              단순 텍스트 추출에는 OCR 엔진이 적합했지만, 이체전표처럼 위치와 문맥이 중요한 입력에서는
+              ChatGPT Vision API가 비정형 손글씨와 의미 추론에 더 유연했습니다.
+            </p>
+            <p class="note">건당 인식 비용은 0.04달러로 산정했습니다.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section signature-section">
+        <div class="section-heading">
+          <p class="eyebrow">Signature Verification</p>
+          <h2>자연스러운 서명 변화는 허용하고 위조 서명은 구분하는 모델</h2>
+          <p>
+            같은 사람의 서명도 매번 조금씩 달라지기 때문에 단순 이미지 비교가 아니라 두 서명의 특징 벡터를 비교하는
+            Siamese Network 구조를 적용했습니다.
+          </p>
+        </div>
+        <div class="two-column two-column--media">
+          <figure class="wide-media">
+            <img src="참고소스/깨비할머니통장/그림13.png" alt="서명 인증 모델 비교 데이터 이미지">
+            <figcaption>서명 검증 데이터셋 구성</figcaption>
+          </figure>
+          <div>
+            <h3>모델 구조</h3>
+            <p>
+              경량화 SimpleCNN을 Backbone으로 사용하고, 두 CNN이 동일한 가중치를 공유하도록 설계했습니다.
+              Feature Vector A와 B의 차이를 L1 Distance로 계산한 뒤 Sigmoid로 유사도 점수를 출력합니다.
+            </p>
+            <ul class="check-list">
+              <li>Positive pair: 같은 사람의 진짜 서명 3000개</li>
+              <li>Negative pair: 진짜 대 위조 서명 1500개</li>
+              <li>Negative pair: 서로 다른 사람의 서명 1500개</li>
+            </ul>
+          </div>
+        </div>
+        <figure class="wide-media training-graph">
+          <img src="참고소스/깨비할머니통장/그림15.png" alt="서명 인증 모델 학습 손실과 정확도 그래프">
+          <figcaption>50 Epoch 학습 과정에서 Loss는 감소하고 Accuracy는 안정적으로 수렴했습니다.</figcaption>
+        </figure>
+        <div class="result-band">
+          <article>
+            <strong>97.23%</strong>
+            <span>훈련 정확도</span>
+          </article>
+          <article>
+            <strong>96.0%</strong>
+            <span>테스트 정확도</span>
+          </article>
+          <article>
+            <strong>99.1%</strong>
+            <span>타인 서명 구분 정확도</span>
+          </article>
+        </div>
+      </section>
+
+      <section id="result" class="section result-section">
+        <div class="section-heading">
+          <p class="eyebrow">Result</p>
+          <h2>기획에서 앱 구현, AI 검증, 발표까지 전 과정을 수행했습니다</h2>
+          <p>
+            깨비 할머니 통장은 종이통장 UI, 손글씨 이체, AI 서명 인증, 복지 지원금 관리 기능을 하나의 모바일 앱 흐름으로 구현한 프로젝트입니다.
+            단순 기획에 그치지 않고 실제 앱 화면과 사용 시연 영상까지 제작했습니다.
+          </p>
+        </div>
+        <div class="presentation-gallery" aria-label="발표 현장 사진">
+          <figure>
+            <img src="참고소스/깨비할머니통장/그림16.png" alt="KB국민은행 Future Finance A.I. Challenge 발표 현장 사진 1">
+          </figure>
+          <figure>
+            <img src="참고소스/깨비할머니통장/그림17.png" alt="KB국민은행 Future Finance A.I. Challenge 발표 현장 사진 2">
+          </figure>
+        </div>
+        <div class="result-layout">
+          <div class="result-copy">
+            <h3>주요 성과</h3>
+            <ul class="check-list">
+              <li>2025 KB국민은행 Future Finance A.I. Challenge 최우수상 수상</li>
+              <li>사용자 조사, 서비스 기획, 앱 구현, AI 기술 검증, 발표까지 전 과정 수행</li>
+              <li>고령층에게 새로운 사용 방식을 강요하지 않고 익숙한 금융 경험을 AI로 확장</li>
+            </ul>
+          </div>
+          <div class="result-copy">
+            <h3>배운 점</h3>
+            <p>
+              좋은 AI 서비스는 모델 성능만으로 완성되지 않고, 사용자가 실제로 신뢰하고 사용할 수 있는 경험 안에 자연스럽게 연결되어야 한다는 점을 배웠습니다.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="text-link" href="index.html">메인으로 돌아가기</a>
+    </footer>
+  </body>
+</html>

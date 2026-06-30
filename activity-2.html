@@ -1,0 +1,523 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>활동 2 - KwangFace</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="박민서 포트폴리오 홈">
+        <span class="brand-mark">PM</span>
+        <span>박민서 포트폴리오</span>
+      </a>
+      <nav class="site-nav" aria-label="주요 메뉴">
+        <a href="index.html">메인</a>
+        <a href="#problem">문제</a>
+        <a href="#flow">흐름</a>
+        <a href="#technology">기술</a>
+        <a href="#result">성과</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="case-hero case-hero--cover kwangface-hero">
+        <div class="hero-overlay"></div>
+        <div class="case-hero__copy">
+          <p class="eyebrow">Activity 02 · Android Interview Training App</p>
+          <h1>KwangFace</h1>
+          <p class="hero-lead">
+            광운대학교 수시전형 면접을 준비하는 고등학생이 자신의 답변을 도전, 탐구, 창의, 소통 기준으로 점검하고
+            다음 답변을 개선할 수 있도록 만든 학교 맞춤형 AI 면접 분석 앱입니다.
+          </p>
+          <p class="kwangface-tagline">AI가 진단하는 나의 참·빛 인재상</p>
+        </div>
+        <figure class="case-hero__visual kwangface-hero__visual">
+          <img src="참고소스/KwangFace/그림1.jpg" alt="KwangFace 홈 화면">
+        </figure>
+        <dl class="project-meta hero-meta">
+          <div>
+            <dt>Project Type</dt>
+            <dd>Android Interview Training App, Speech UX, Rule-based Scoring</dd>
+          </div>
+          <div>
+            <dt>My Role</dt>
+            <dd>서비스 기획, Android 앱 구현, STT/TTS 연동, 점수화 로직 설계, 레이더 차트 시각화</dd>
+          </div>
+          <div>
+            <dt>Tech Stack</dt>
+            <dd>Kotlin, Android Studio, MVVM, StateFlow, SpeechRecognizer, TextToSpeech, CameraX, MPAndroidChart</dd>
+          </div>
+          <div>
+            <dt>Achievement</dt>
+            <dd>학생 공동체 활성화 공모전 KW : Archiving 장려상 · Android MVP 구현</dd>
+          </div>
+        </dl>
+      </section>
+
+      <dl class="project-meta project-meta--mobile">
+        <div>
+          <dt>Project Type</dt>
+          <dd>Android Interview Training App, Speech UX, Rule-based Scoring</dd>
+        </div>
+        <div>
+          <dt>My Role</dt>
+          <dd>서비스 기획, Android 앱 구현, STT/TTS 연동, 점수화 로직 설계, 레이더 차트 시각화</dd>
+        </div>
+        <div>
+          <dt>Tech Stack</dt>
+          <dd>Kotlin, Android Studio, MVVM, StateFlow, SpeechRecognizer, TextToSpeech, CameraX, MPAndroidChart</dd>
+        </div>
+        <div>
+          <dt>Achievement</dt>
+          <dd>학생 공동체 활성화 공모전 KW : Archiving 장려상 · Android MVP 구현</dd>
+        </div>
+      </dl>
+
+      <section id="problem" class="section kw-section">
+        <div class="two-column two-column--balanced">
+          <div class="section-heading">
+            <p class="eyebrow">Problem & Planning</p>
+            <h2>고교생은 광운대가 원하는 인재상에 맞게 준비하고 있는지 알기 어렵습니다</h2>
+            <p>
+              기존 면접 준비는 답변 태도나 발음처럼 범용 기준에 집중하는 경우가 많았습니다.
+              KwangFace는 “면접을 잘 봤는지”보다 “내 답변이 광운대 인재상에 어떻게 연결되는지”를 보여주는 서비스로 문제를 재정의했습니다.
+            </p>
+          </div>
+          <div class="insight-panel">
+            <span class="panel-label">Planning Focus</span>
+            <h3>입시 홍보와 면접 준비를 연결한 체험형 콘텐츠</h3>
+            <p>
+              고등학생은 앱을 통해 자신의 답변을 분석받고, 광운대는 “AI에 강한 대학”이라는 이미지를 실제 사용 경험으로 전달할 수 있습니다.
+            </p>
+            <div class="keyword-grid">
+              <span>도전</span>
+              <span>탐구</span>
+              <span>창의</span>
+              <span>소통</span>
+            </div>
+          </div>
+        </div>
+        <div class="overview-grid">
+          <article>
+            <h3>객관적 기준 부족</h3>
+            <p>답변이 대학 인재상에 얼마나 맞는지 스스로 판단하기 어렵습니다.</p>
+          </article>
+          <article>
+            <h3>대학별 피드백 부재</h3>
+            <p>일반 면접 앱은 표정, 발음, 시선 등 범용 태도 분석에 머무르기 쉽습니다.</p>
+          </article>
+          <article>
+            <h3>체험형 홍보 필요</h3>
+            <p>광운대의 AI 기술력과 인재상 가치를 고교생이 직접 체감하는 콘텐츠가 필요했습니다.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section kw-section">
+        <div class="section-heading">
+          <p class="eyebrow">Core Feature Overview</p>
+          <h2>면접 답변을 인재상 점수와 피드백으로 변환합니다</h2>
+          <p>
+            질문 진행, 답변 인식, 점수화, 리포트 시각화를 하나의 앱 흐름으로 연결했습니다.
+          </p>
+        </div>
+        <div class="process-flow process-flow--four" aria-label="KwangFace 핵심 기능 흐름">
+          <article>
+            <span>01</span>
+            <strong>질문</strong>
+            <p>TTS로 면접 질문을 읽어줍니다.</p>
+          </article>
+          <article>
+            <span>02</span>
+            <strong>답변</strong>
+            <p>카메라 화면을 보며 60초 동안 음성으로 답변합니다.</p>
+          </article>
+          <article>
+            <span>03</span>
+            <strong>분석</strong>
+            <p>STT transcript를 도전, 탐구, 창의, 소통 기준으로 점수화합니다.</p>
+          </article>
+          <article>
+            <span>04</span>
+            <strong>리포트</strong>
+            <p>피드백과 레이더 차트로 강점과 보완점을 보여줍니다.</p>
+          </article>
+        </div>
+        <div class="feature-grid kw-feature-grid">
+          <article class="feature-card">
+            <span>01</span>
+            <h3>음성 기반 모의면접</h3>
+            <p>3초 준비 시간 후 실제 면접처럼 질문을 듣고 말로 답변합니다.</p>
+          </article>
+          <article class="feature-card">
+            <span>02</span>
+            <h3>STT 답변 변환</h3>
+            <p>Android SpeechRecognizer가 음성 답변을 분석 가능한 텍스트로 변환합니다.</p>
+          </article>
+          <article class="feature-card">
+            <span>03</span>
+            <h3>인재상 점수화</h3>
+            <p>역량별 키워드와 문장 구조 보조점을 결합해 점수를 계산합니다.</p>
+          </article>
+          <article class="feature-card">
+            <span>04</span>
+            <h3>레이더 차트 리포트</h3>
+            <p>MPAndroidChart로 4개 역량의 강약점을 직관적으로 시각화합니다.</p>
+          </article>
+          <article class="feature-card">
+            <span>05</span>
+            <h3>개선 피드백</h3>
+            <p>취약 역량을 중심으로 다음 답변에서 보완할 문구와 예시 답변을 제공합니다.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="flow" class="section kw-section">
+        <div class="section-heading">
+          <p class="eyebrow">Actual App Flow</p>
+          <h2>질문을 듣고 답변하면 인재상 리포트가 생성됩니다</h2>
+          <p>Home → Interview → Feedback → Radar Report 순서로 사용자가 자연스럽게 반복 연습할 수 있도록 구성했습니다.</p>
+        </div>
+        <div class="app-flow-grid">
+          <figure class="app-screen-card">
+            <img src="참고소스/KwangFace/그림1.jpg" alt="KwangFace 홈 화면">
+            <figcaption><strong>Home</strong><span>모의면접 시작</span></figcaption>
+          </figure>
+          <figure class="app-screen-card">
+            <img src="참고소스/KwangFace/그림2.jpg" alt="KwangFace 면접 녹음 화면">
+            <figcaption><strong>Interview</strong><span>TTS 질문, 카메라 프리뷰, REC 표시</span></figcaption>
+          </figure>
+          <figure class="app-screen-card">
+            <img src="참고소스/KwangFace/그림5.jpg" alt="KwangFace 피드백 화면">
+            <figcaption><strong>Feedback</strong><span>취약 역량과 개선 답변 제안</span></figcaption>
+          </figure>
+          <figure class="app-screen-card">
+            <img src="참고소스/KwangFace/그림6.jpg" alt="KwangFace 레이더 차트 화면">
+            <figcaption><strong>Radar Report</strong><span>4개 역량 점수 시각화</span></figcaption>
+          </figure>
+        </div>
+        <div class="scenario-strip">
+          <span>홈에서 시작</span>
+          <span>질문 TTS 재생</span>
+          <span>음성 답변 녹음</span>
+          <span>STT 텍스트 변환</span>
+          <span>점수와 피드백 확인</span>
+        </div>
+      </section>
+
+      <section id="technology" class="section kw-section">
+        <div class="section-heading">
+          <p class="eyebrow">System Architecture</p>
+          <h2>음성 입력부터 결과 리포트까지 연결한 Android 앱 구조</h2>
+          <p>
+            Single-Activity 구조에서 Fragment 전환을 Jetpack Navigation으로 관리하고, ViewModel과 StateFlow로 질문 진행 상태, 녹음 상태, STT 결과, 점수 계산 결과를 화면에 반영했습니다.
+          </p>
+        </div>
+        <div class="architecture-layout">
+          <figure class="wide-media diagram-scroll">
+            <img src="참고소스/KwangFace/image.png" alt="KwangFace 시스템 구조도">
+            <figcaption>KwangFace 시스템 구조도</figcaption>
+          </figure>
+          <div class="tech-table-wrap">
+            <table class="tech-table">
+              <tbody>
+                <tr>
+                  <th>Language</th>
+                  <td>Kotlin</td>
+                </tr>
+                <tr>
+                  <th>Architecture</th>
+                  <td>MVVM, Single-Activity</td>
+                </tr>
+                <tr>
+                  <th>Navigation</th>
+                  <td>Jetpack Navigation</td>
+                </tr>
+                <tr>
+                  <th>State</th>
+                  <td>ViewModel, StateFlow</td>
+                </tr>
+                <tr>
+                  <th>Voice</th>
+                  <td>SpeechRecognizer, TextToSpeech</td>
+                </tr>
+                <tr>
+                  <th>Camera</th>
+                  <td>CameraX</td>
+                </tr>
+                <tr>
+                  <th>Chart</th>
+                  <td>MPAndroidChart</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="component-grid">
+          <article>
+            <h3>InterviewFragment</h3>
+            <p>질문 표시, TTS 재생, 카운트다운, STT 녹음, 카메라 프리뷰를 담당합니다.</p>
+          </article>
+          <article>
+            <h3>ResultViewModel</h3>
+            <p>답변 텍스트를 받아 점수 계산, 등급 산출, 피드백 생성을 연결합니다.</p>
+          </article>
+          <article>
+            <h3>Scoring Layer</h3>
+            <p>Scorer, BonusHeuristics, GradeCalculator, FeedbackGenerator로 분석 과정을 분리했습니다.</p>
+          </article>
+          <article>
+            <h3>RadarFragment</h3>
+            <p>MPAndroidChart를 활용해 도전, 탐구, 창의, 소통 점수를 시각화합니다.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section kw-section">
+        <div class="section-heading">
+          <p class="eyebrow">Voice Interview Pipeline</p>
+          <h2>실제 면접처럼 질문을 듣고 말로 답변하는 인터랙션</h2>
+          <p>
+            텍스트 입력 대신 TTS와 STT를 결합해 면접 환경에 가까운 연습 흐름을 만들었습니다.
+          </p>
+        </div>
+        <div class="pipeline-layout">
+          <figure class="app-screen-card app-screen-card--large">
+            <img src="참고소스/KwangFace/그림2.jpg" alt="KwangFace 면접 녹음 중 화면">
+            <figcaption><strong>Interview Screen</strong><span>질문, 카메라 프리뷰, 녹음 시간을 한 화면에 배치</span></figcaption>
+          </figure>
+          <div class="pipeline-copy">
+            <div class="process-flow process-flow--vertical">
+              <article><span>01</span><strong>질문 데이터 로드</strong><p>현재 순서의 면접 질문을 화면에 표시합니다.</p></article>
+              <article><span>02</span><strong>TTS 질문 출력</strong><p>질문을 한국어 음성으로 읽고, 다시 듣기 흐름을 제공합니다.</p></article>
+              <article><span>03</span><strong>3초 준비</strong><p>답변 시작 시점을 명확히 알 수 있도록 카운트다운을 보여줍니다.</p></article>
+              <article><span>04</span><strong>60초 STT 녹음</strong><p>부분 결과와 최종 결과를 누적해 긴 답변을 transcript로 변환합니다.</p></article>
+            </div>
+          </div>
+        </div>
+        <div class="overview-grid">
+          <article>
+            <h3>Audio Focus</h3>
+            <p>TTS 출력과 STT 입력이 충돌하지 않도록 음성 출력 후 녹음이 시작되게 분리했습니다.</p>
+          </article>
+          <article>
+            <h3>Continuous Recognition</h3>
+            <p>긴 답변도 안정적으로 처리할 수 있도록 부분 결과와 최종 결과를 누적합니다.</p>
+          </article>
+          <article>
+            <h3>State Feedback</h3>
+            <p>카운트다운, REC 표시, 녹음 시간, 답변 완료 버튼으로 현재 상태를 명확히 보여줍니다.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section kw-section">
+        <div class="section-heading">
+          <p class="eyebrow">Scoring Engine</p>
+          <h2>답변 텍스트를 도전, 탐구, 창의, 소통 점수로 변환합니다</h2>
+          <p>
+            키워드 매칭만으로 끝내지 않고 문장 수, 구체성 표현, 전환 표현, 협업 단어 등 구조 보조점을 함께 반영했습니다.
+          </p>
+        </div>
+        <div class="score-layout">
+          <div class="competency-grid">
+            <article><span>Challenge</span><h3>도전</h3><p>도전, 극복, 목표, 리더십, 시도, 감내, 주도</p></article>
+            <article><span>Inquiry</span><h3>탐구</h3><p>탐구, 분석, 실험, 근거, 연구, 데이터, 사전조사</p></article>
+            <article><span>Creativity</span><h3>창의</h3><p>창의, 혁신, 개선, 아이디어, 새롭, 발명, 독창</p></article>
+            <article><span>Communication</span><h3>소통</h3><p>소통, 협력, 공감, 팀, 의견, 조율, 피드백</p></article>
+          </div>
+          <div class="formula-card">
+            <span class="panel-label">Score Formula</span>
+            <strong>역량 점수 = 발견 키워드 수 × 5점</strong>
+            <p>각 역량은 0~25점 범위로 제한하고, 총점은 4개 역량 점수와 보조점을 합산해 100점 범위로 계산했습니다.</p>
+            <div class="code-chip-list">
+              <span>Scorer.kt</span>
+              <span>BonusHeuristics.kt</span>
+              <span>GradeCalculator.kt</span>
+              <span>FeedbackGenerator.kt</span>
+            </div>
+          </div>
+        </div>
+        <div class="table-card">
+          <table class="tech-table">
+            <thead>
+              <tr>
+                <th>평가 항목</th>
+                <th>조건</th>
+                <th>점수</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>문장 수</td>
+                <td>문장 수 3개 이상</td>
+                <td>+5점</td>
+              </tr>
+              <tr>
+                <td>전환 표현</td>
+                <td>“결과적으로”, “경험을 통해” 포함</td>
+                <td>+3점</td>
+              </tr>
+              <tr>
+                <td>구체성 표현</td>
+                <td>“예를 들어”, “당시” 포함</td>
+                <td>+3점</td>
+              </tr>
+              <tr>
+                <td>협업 단어</td>
+                <td>“팀”, “협업” 포함</td>
+                <td>+3점</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section kw-section">
+        <div class="section-heading">
+          <p class="eyebrow">Feedback & Visualization</p>
+          <h2>점수보다 중요한 것은 다음 답변의 개선 방향입니다</h2>
+          <p>
+            사용자가 어떤 역량을 보완해야 하는지 바로 이해할 수 있도록 답변 전문, 취약 역량 피드백, 예시 답변, 레이더 차트를 함께 제공합니다.
+          </p>
+        </div>
+        <div class="feedback-layout">
+          <figure class="app-screen-card">
+            <img src="참고소스/KwangFace/그림4.jpg" alt="KwangFace 답변 전문 화면">
+            <figcaption><strong>Transcript</strong><span>내가 말한 답변 확인</span></figcaption>
+          </figure>
+          <figure class="app-screen-card">
+            <img src="참고소스/KwangFace/그림5.jpg" alt="KwangFace 피드백 화면">
+            <figcaption><strong>Feedback</strong><span>취약 역량 중심 개선 제안</span></figcaption>
+          </figure>
+          <figure class="app-screen-card">
+            <img src="참고소스/KwangFace/그림3.jpg" alt="KwangFace 레이더 차트 결과 화면">
+            <figcaption><strong>Radar</strong><span>도전, 탐구, 창의, 소통 점수</span></figcaption>
+          </figure>
+        </div>
+        <div class="table-card">
+          <table class="tech-table grade-table">
+            <thead>
+              <tr>
+                <th>등급</th>
+                <th>점수 기준</th>
+                <th>의미</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>A</td>
+                <td>90점 이상</td>
+                <td>참빛인재 매우 부합</td>
+              </tr>
+              <tr>
+                <td>B</td>
+                <td>80점 이상</td>
+                <td>인재상 부합</td>
+              </tr>
+              <tr>
+                <td>C</td>
+                <td>60점 이상</td>
+                <td>성장 가능, 추가 준비 필요</td>
+              </tr>
+              <tr>
+                <td>D</td>
+                <td>60점 미만</td>
+                <td>준비 미흡, 단계적 개선 필요</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section kw-section">
+        <div class="section-heading">
+          <p class="eyebrow">AI Extension Plan</p>
+          <h2>답변 내용뿐 아니라 표정, 시선, 목소리까지 분석하는 멀티모달 구조로 확장할 수 있습니다</h2>
+          <p>
+            현재 MVP는 STT 기반 텍스트 분석과 규칙 기반 점수화에 집중했습니다. 향후에는 Verbal, Visual, Vocal 데이터를 결합한 면접 분석 구조로 고도화할 수 있습니다.
+          </p>
+        </div>
+        <div class="multimodal-grid">
+          <article>
+            <span class="panel-label">Current MVP</span>
+            <h3>STT → Scoring → Feedback</h3>
+            <p>답변 텍스트를 인재상 키워드와 문장 구조 기준으로 분석합니다.</p>
+          </article>
+          <article>
+            <span class="panel-label">Verbal</span>
+            <h3>문맥과 전공 적합성</h3>
+            <p>KoBERT, KoELECTRA, Mecab-ko 기반 문맥 유사도와 키워드 추출로 확장할 수 있습니다.</p>
+          </article>
+          <article>
+            <span class="panel-label">Visual</span>
+            <h3>표정과 시선</h3>
+            <p>MediaPipe Face Mesh, Eye Contact Ratio, BlazePose로 면접 태도를 수치화할 수 있습니다.</p>
+          </article>
+          <article>
+            <span class="panel-label">Vocal</span>
+            <h3>목소리와 침묵 구간</h3>
+            <p>Librosa, OpenSMILE, Silero VAD로 발화 속도, 에너지, 침묵 구간을 분석할 수 있습니다.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="result" class="section kw-section result-section">
+        <div class="section-heading">
+          <p class="eyebrow">Result</p>
+          <h2>광운대 인재상 기반 면접 분석 앱을 실제 Android MVP로 구현하고 공모전 전시까지 확장했습니다</h2>
+          <p>
+            KwangFace는 TTS 질문 출력, STT 답변 인식, 규칙 기반 점수화, 피드백 생성, 레이더 차트 리포트 기능을 실제 앱 화면으로 완성한 프로젝트입니다.
+          </p>
+        </div>
+        <div class="presentation-gallery presentation-gallery--three">
+          <figure>
+            <img src="참고소스/KwangFace/IMG_6741.JPG" alt="KwangFace 공모전 포스터 전시 사진">
+          </figure>
+          <figure>
+            <img src="참고소스/KwangFace/IMG_6760.JPG" alt="KwangFace 공모전 부스 전시 사진">
+          </figure>
+          <figure>
+            <img src="참고소스/KwangFace/IMG_6775.JPG" alt="KwangFace 공모전 발표 및 피드백 현장 사진">
+          </figure>
+        </div>
+        <div class="achievement-grid">
+          <article>
+            <strong>Android MVP</strong>
+            <span>음성 면접, 피드백, 레이더 차트까지 실제 앱 흐름 구현</span>
+          </article>
+          <article>
+            <strong>KW : Archiving</strong>
+            <span>학생 공동체 활성화 공모전 장려상 수상</span>
+          </article>
+          <article>
+            <strong>Booth Exhibition</strong>
+            <span>서비스 아이디어와 앱 화면을 공모전 부스에서 전시</span>
+          </article>
+        </div>
+        <div class="result-layout">
+          <div class="result-copy">
+            <h3>프로젝트 의의</h3>
+            <p>
+              일반적인 면접 연습 앱이 아니라 대학의 인재상과 AI 분석 경험을 연결한 학교 맞춤형 서비스입니다.
+              고등학생에게는 면접 준비 기준을 제공하고, 대학에는 AI 기술력을 체험하게 하는 홍보 콘텐츠로 활용될 수 있습니다.
+            </p>
+          </div>
+          <div class="result-copy">
+            <h3>배운 점</h3>
+            <p>
+              음성 입력, 상태 관리, 점수화 로직, 결과 시각화를 하나의 앱 흐름으로 통합했습니다.
+              또한 AI 서비스는 분석 기능 자체만큼이나 사용자가 결과를 이해하고 다음 행동으로 이어갈 수 있게 만드는 피드백 구조가 중요하다는 점을 배웠습니다.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="text-link" href="index.html">메인으로 돌아가기</a>
+    </footer>
+  </body>
+</html>

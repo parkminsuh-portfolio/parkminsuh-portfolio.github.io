@@ -1,0 +1,457 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>활동 7 - 상권 여기어때</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="박민서 포트폴리오 홈">
+        <span class="brand-mark">PM</span>
+        <span>박민서 포트폴리오</span>
+      </a>
+      <nav class="site-nav" aria-label="주요 메뉴">
+        <a href="index.html">메인</a>
+        <a href="#problem">문제</a>
+        <a href="#data">데이터</a>
+        <a href="#architecture">구조</a>
+        <a href="#dashboard">대시보드</a>
+        <a href="#result">성과</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="case-hero case-hero--cover snowflake-hero">
+        <div class="hero-overlay"></div>
+        <div class="case-hero__copy">
+          <p class="eyebrow">Activity 07 · Snowflake Hackathon</p>
+          <h1>상권 여기어때</h1>
+          <p class="hero-lead">
+            서울시 상권 데이터를 행정동 × 업종 × 분기 단위로 통합하고,
+            Snowflake Model Registry, Batch Inference, Streamlit Dashboard까지 연결한 상권 입지 추천 AI 서비스입니다.
+          </p>
+          <p class="snowflake-tagline">업종에서 지역으로, 지역에서 업종으로 이어지는 데이터 기반 창업 의사결정</p>
+        </div>
+        <figure class="case-hero__visual snowflake-hero__visual">
+          <img src="참고소스/snowflake/그림2.png" alt="상권 여기어때 업종 기준 추천 지역 대시보드 화면">
+        </figure>
+        <dl class="project-meta hero-meta">
+          <div>
+            <dt>Project Type</dt>
+            <dd>AI Recommendation System, Commercial District Analysis, Snowflake ML Pipeline, Streamlit Dashboard</dd>
+          </div>
+          <div>
+            <dt>My Role</dt>
+            <dd>데이터 전처리, 모델 학습, 추천 구조 설계, Snowflake 배치 추론 흐름 구성, Streamlit 대시보드 구현, 발표자료 구성</dd>
+          </div>
+          <div>
+            <dt>Tech Stack</dt>
+            <dd>Python, Pandas, NumPy, scikit-learn, XGBoost, Snowflake, Snowpark Python, Model Registry, Streamlit in Snowflake</dd>
+          </div>
+          <div>
+            <dt>Output</dt>
+            <dd>업종 → 추천 지역, 지역 → 추천 업종을 확률과 추천 이유로 제공하는 End-to-End AI 서비스</dd>
+          </div>
+        </dl>
+      </section>
+
+      <dl class="project-meta project-meta--mobile">
+        <div>
+          <dt>Project Type</dt>
+          <dd>AI Recommendation System, Commercial District Analysis, Snowflake ML Pipeline, Streamlit Dashboard</dd>
+        </div>
+        <div>
+          <dt>My Role</dt>
+          <dd>데이터 전처리, 모델 학습, 추천 구조 설계, Snowflake 배치 추론 흐름 구성, Streamlit 대시보드 구현, 발표자료 구성</dd>
+        </div>
+        <div>
+          <dt>Output</dt>
+          <dd>Snowflake 기반 End-to-End 상권 추천 AI 서비스 구현</dd>
+        </div>
+      </dl>
+
+      <section class="section snowflake-section">
+        <div class="two-column two-column--balanced">
+          <div class="section-heading">
+            <p class="eyebrow">Project Introduction</p>
+            <h2>창업자의 입지 선택을 경험과 직관이 아니라 데이터 기반 추천으로 바꾸는 서비스입니다</h2>
+            <p>
+              상권 여기어때는 초기 창업자와 소상공인이 서울시에서 어떤 업종을 어느 지역에 입점해야 할지 판단할 수 있도록 돕는 AI 추천 서비스입니다.
+              인구, 방문인구, 지하철 접근성, 부동산 가격, 경쟁 점포 데이터를 통합해 지역-업종 조합의 추천 가능성을 확률로 계산했습니다.
+            </p>
+          </div>
+          <div class="insight-panel snowflake-intro-panel">
+            <span class="panel-label">One Line</span>
+            <h3>서울시 상권 데이터를 통합해 “업종 → 추천 지역”과 “지역 → 추천 업종”을 제공하는 Snowflake 기반 추천 대시보드</h3>
+            <p>
+              단순한 상권 데이터 조회가 아니라, 추천 확률과 이유를 함께 보여주는 창업 의사결정 지원 도구로 설계했습니다.
+            </p>
+          </div>
+        </div>
+        <div class="process-flow process-flow--four snowflake-process" aria-label="상권 여기어때 전체 흐름">
+          <article>
+            <span>Step 01</span>
+            <strong>데이터 통합</strong>
+            <p>서울시 상권 데이터를 행정동, 업종, 분기 단위로 정리합니다.</p>
+          </article>
+          <article>
+            <span>Step 02</span>
+            <strong>모델 학습</strong>
+            <p>Logistic Regression, Random Forest, XGBoost를 비교합니다.</p>
+          </article>
+          <article>
+            <span>Step 03</span>
+            <strong>Snowflake 배포</strong>
+            <p>Model Registry와 Batch Inference로 추천 확률을 생성합니다.</p>
+          </article>
+          <article>
+            <span>Step 04</span>
+            <strong>대시보드 제공</strong>
+            <p>Streamlit에서 지도, Top N, 추천 이유를 확인합니다.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="problem" class="section snowflake-section">
+        <div class="section-heading">
+          <p class="eyebrow">Problem Definition</p>
+          <h2>창업자는 여전히 입지와 업종 선택을 경험과 직관에 의존하고 있었습니다</h2>
+          <p>
+            초기 창업자와 소상공인은 상권 데이터를 참고해야 하지만, 실제로는 데이터 해석 경험이 부족해 주변 의견이나 감에 의존하는 경우가 많습니다.
+            기존 상권분석 서비스는 수치 중심이라 최종 의사결정으로 연결되기 어렵다는 한계가 있었습니다.
+          </p>
+        </div>
+        <div class="problem-comparison">
+          <article>
+            <span class="panel-label">Pain Point</span>
+            <h3>상권 데이터는 많지만 판단은 어렵습니다</h3>
+            <p>
+              지역과 맞지 않는 업종 선택, 유망 입지 누락, 초기 투자 비용 손실과 폐업 리스크가 모두 입지 의사결정의 불확실성에서 시작될 수 있습니다.
+            </p>
+          </article>
+          <article>
+            <span class="panel-label">Hypothesis</span>
+            <h3>좋은 입지는 여러 데이터 패턴의 결합으로 설명할 수 있습니다</h3>
+            <p>
+              방문인구 비율, 지역 인구 규모, 지하철 접근성, 임대 수준, 동일 업종 경쟁 강도를 함께 학습하면 추천 가능한 지역-업종 패턴을 도출할 수 있다고 보았습니다.
+            </p>
+          </article>
+        </div>
+        <div class="formula-card snowflake-problem-line">
+          <strong>문제 재정의: 창업자에게 필요한 것은 데이터 조회가 아니라 “이 업종이 어느 지역에서 잘 될 가능성이 높은지”를 바로 판단할 수 있는 추천 결과입니다.</strong>
+        </div>
+      </section>
+
+      <section id="data" class="section snowflake-section">
+        <div class="section-heading">
+          <p class="eyebrow">Data Integration</p>
+          <h2>서울시 상권 데이터를 행정동 × 업종 × 분기 단위로 구조화했습니다</h2>
+          <p>
+            상권 성과는 하나의 지표로 설명하기 어렵기 때문에, Snowflake 제공 데이터와 외부 공공·상권 데이터를 통합해 모델이 학습할 수 있는 후보 테이블을 만들었습니다.
+          </p>
+        </div>
+        <div class="component-grid snowflake-data-grid">
+          <article>
+            <span class="panel-label">Source</span>
+            <h3>Snowflake 제공 데이터</h3>
+            <p>리치고 데이터, SPH 데이터 등 상권 분석에 활용 가능한 데이터 소스를 결합했습니다.</p>
+          </article>
+          <article>
+            <span class="panel-label">External</span>
+            <h3>공공·상권 데이터</h3>
+            <p>서울 열린데이터 광장, 인구, 방문인구, 지하철, 부동산, 경쟁 점포 데이터를 정리했습니다.</p>
+          </article>
+          <article>
+            <span class="panel-label">Unit</span>
+            <h3>행정동 × 업종 × 분기</h3>
+            <p>지역과 업종의 관계를 학습할 수 있도록 동일한 분석 단위로 집계했습니다.</p>
+          </article>
+        </div>
+        <div class="overview-grid snowflake-feature-grid">
+          <article>
+            <span class="panel-label">Feature</span>
+            <h3>TOTAL_POPULATION</h3>
+            <p>지역 인구 규모</p>
+          </article>
+          <article>
+            <span class="panel-label">Feature</span>
+            <h3>VISITING_RATIO</h3>
+            <p>방문인구 비율</p>
+          </article>
+          <article>
+            <span class="panel-label">Feature</span>
+            <h3>SUBWAY_PASSENGERS</h3>
+            <p>지하철 접근성</p>
+          </article>
+          <article>
+            <span class="panel-label">Feature</span>
+            <h3>SAME_INDUSTRY_STORE_COUNT</h3>
+            <p>동일 업종 경쟁 점포 수</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="recommendation" class="section snowflake-section">
+        <div class="section-heading">
+          <p class="eyebrow">Recommendation Structure</p>
+          <h2>업종을 입력하면 추천 지역을, 지역을 입력하면 추천 업종을 제공하는 양방향 추천 구조입니다</h2>
+          <p>
+            모델은 지역-업종 조합의 추천 가능성을 확률값으로 출력하고, 이 값을 기반으로 Top N 추천 결과와 추천 이유를 구성합니다.
+          </p>
+        </div>
+        <div class="snowflake-recommend-layout">
+          <article class="insight-panel">
+            <span class="panel-label">Industry to Region</span>
+            <h3>업종 → 지역 추천</h3>
+            <p>카페, 음식점, 뷰티 등 특정 업종을 선택하면 서울시 내에서 해당 업종에 적합한 행정동 Top N을 제공합니다.</p>
+          </article>
+          <article class="insight-panel">
+            <span class="panel-label">Region to Industry</span>
+            <h3>지역 → 업종 추천</h3>
+            <p>논현동, 미아동 등 특정 지역을 선택하면 해당 지역에서 성공 가능성이 높은 업종 순위를 제공합니다.</p>
+          </article>
+          <article class="insight-panel snowflake-score-card">
+            <span class="panel-label">Result Card</span>
+            <h3>추천 결과 구성</h3>
+            <p>추천 확률 Y_PROB, 최종 판단 Y_PRED, 추천 이유, 핵심 영향 Feature, 지역별·업종별 Top N 랭킹을 함께 보여줍니다.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="model" class="section snowflake-section">
+        <div class="section-heading">
+          <p class="eyebrow">Model Training</p>
+          <h2>Logistic Regression, Random Forest, XGBoost를 비교하고 확률 기반 추천 모델을 선택했습니다</h2>
+          <p>
+            각 지역-업종 조합이 추천할 만한 조합인지 판단하기 위해 여러 모델을 비교했습니다.
+            최종 추천은 모델 확률값과 threshold를 함께 적용해 생성되도록 설계했습니다.
+          </p>
+        </div>
+        <div class="snowflake-model-layout">
+          <div class="process-flow process-flow--vertical snowflake-process" aria-label="모델 학습 흐름">
+            <article>
+              <span>01</span>
+              <strong>모델 입력 데이터 생성</strong>
+              <p>후보 데이터를 학습 가능한 feature와 target으로 구성했습니다.</p>
+            </article>
+            <article>
+              <span>02</span>
+              <strong>모델 비교</strong>
+              <p>Logistic Regression, Random Forest, XGBoost를 비교했습니다.</p>
+            </article>
+            <article>
+              <span>03</span>
+              <strong>XGBoost 선택</strong>
+              <p>복잡한 상권 데이터의 비선형 패턴을 반영할 수 있는 모델을 최종 후보로 선택했습니다.</p>
+            </article>
+            <article>
+              <span>04</span>
+              <strong>산출물 생성</strong>
+              <p>best_model.joblib, metrics, predictions, feature importance, threshold 정보를 정리했습니다.</p>
+            </article>
+          </div>
+          <figure class="wide-media snowflake-code-card">
+            <img src="참고소스/snowflake/ppt-assets/code-workspace.jpg" alt="상권 추천 모델과 대시보드 구현 코드 작업 화면">
+            <figcaption>모델 학습, 추론, 대시보드 구현 흐름을 코드로 연결</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section id="architecture" class="section snowflake-section">
+        <div class="section-heading">
+          <p class="eyebrow">System Architecture</p>
+          <h2>로컬 학습부터 Snowflake 배포, 배치 추론, Streamlit 대시보드까지 연결했습니다</h2>
+          <p>
+            이 프로젝트의 핵심은 데이터 분석에서 끝나는 것이 아니라, 학습 모델을 Snowflake에 등록하고 배치 추론 결과를 대시보드에서 조회할 수 있게 만든 End-to-End 구조입니다.
+          </p>
+        </div>
+        <figure class="wide-media snowflake-architecture-card snowflake-scroll-media">
+          <img src="참고소스/snowflake/image.png" alt="상권 여기어때 프로젝트 전체 시스템 구조도">
+          <figcaption>프로젝트 전체 시스템 구조도: 데이터 준비, 모델 학습, Snowflake 추론, 추천 후처리, Streamlit 대시보드</figcaption>
+        </figure>
+        <div class="component-grid snowflake-table-grid">
+          <article>
+            <span class="panel-label">Local Training</span>
+            <h3>전처리와 모델 학습</h3>
+            <p>fill_*.py, preprocess_se_1245.py, build_model_input_data.py, train_location_model.py</p>
+          </article>
+          <article>
+            <span class="panel-label">Snowflake</span>
+            <h3>배포와 추론</h3>
+            <p>register_xgboost_model.py, create_inference_candidate_table.py, run_candidate_inference.py</p>
+          </article>
+          <article>
+            <span class="panel-label">Dashboard</span>
+            <h3>추천 결과 제공</h3>
+            <p>postprocess_recommendations.py, streamlit_app.py, INFERENCE_DASHBOARD_BASE</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="snowflake" class="section snowflake-section">
+        <div class="feature-section">
+          <div class="feature-copy">
+            <p class="eyebrow">Snowflake Pipeline</p>
+            <h2>Model Registry, Batch Inference, Streamlit in Snowflake를 연결했습니다</h2>
+            <p>
+              학습된 XGBoost 모델을 Snowflake Model Registry에 등록하고, 추론 후보 테이블에 대해 배치 추론을 실행했습니다.
+              이후 추천 후처리 테이블을 만들고 Streamlit in Snowflake에서 결과를 조회하도록 구성했습니다.
+            </p>
+            <ul class="check-list">
+              <li>Snowflake Database에 후보, 추론 결과, 추천 결과 테이블 저장</li>
+              <li>Snowpark Python으로 데이터 처리와 Python 기반 추론 흐름 연결</li>
+              <li>Model Registry를 통해 모델 등록과 재사용 구조 구성</li>
+              <li>Streamlit in Snowflake로 지도와 분석 리포트 제공</li>
+            </ul>
+          </div>
+          <figure class="wide-media snowflake-cortex-card">
+            <img src="참고소스/snowflake/ppt-assets/snowflake-cortex-architecture.png" alt="Snowflake Cortex AI Architecture 활용 구조">
+            <figcaption>Snowflake Cortex AI Architecture 관점에서 정리한 서비스 구성</figcaption>
+          </figure>
+        </div>
+        <div class="process-flow process-flow--four snowflake-process">
+          <article>
+            <span>01</span>
+            <strong>Registry 등록</strong>
+            <p>로컬 모델을 Snowflake Model Registry에 등록합니다.</p>
+          </article>
+          <article>
+            <span>02</span>
+            <strong>후보 테이블 적재</strong>
+            <p>지역 × 업종 × 분기 후보 데이터를 Snowflake에 올립니다.</p>
+          </article>
+          <article>
+            <span>03</span>
+            <strong>Batch Inference</strong>
+            <p>추천 확률과 최종 판단값을 추론 결과 테이블에 저장합니다.</p>
+          </article>
+          <article>
+            <span>04</span>
+            <strong>Dashboard 조회</strong>
+            <p>Streamlit에서 추천 Top N과 이유를 조회합니다.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="dashboard" class="section snowflake-section">
+        <div class="section-heading">
+          <p class="eyebrow">Streamlit Dashboard</p>
+          <h2>추천 결과를 창업자가 바로 이해할 수 있는 지도와 리포트 화면으로 제공했습니다</h2>
+          <p>
+            모델 결과를 테이블로만 보여주지 않고, 지도, 추천 순위, 확률, 추천 이유를 함께 배치했습니다.
+            사용자는 지역 또는 업종을 선택하고 추천 결과를 한 화면에서 확인할 수 있습니다.
+          </p>
+        </div>
+        <div class="snowflake-dashboard-grid">
+          <figure class="wide-media snowflake-dashboard-card">
+            <img src="참고소스/snowflake/그림1.png" alt="지역 기준 추천 업종 대시보드 화면">
+            <figcaption>지역 → 추천 업종: 선택한 지역에 적합한 업종과 추천 이유 제공</figcaption>
+          </figure>
+          <figure class="wide-media snowflake-dashboard-card">
+            <img src="참고소스/snowflake/그림2.png" alt="업종 기준 추천 지역 대시보드 화면">
+            <figcaption>업종 → 추천 지역: 서울시 지도 기반 추천 지역과 비추천 지역 비교</figcaption>
+          </figure>
+        </div>
+        <div class="process-flow process-flow--four snowflake-process">
+          <article>
+            <span>01</span>
+            <strong>선택</strong>
+            <p>지역 기준 또는 업종 기준 분석 모드를 선택합니다.</p>
+          </article>
+          <article>
+            <span>02</span>
+            <strong>추천 결과</strong>
+            <p>추천 확률과 Top N 랭킹을 확인합니다.</p>
+          </article>
+          <article>
+            <span>03</span>
+            <strong>지도</strong>
+            <p>서울시 행정동 단위 위치를 직관적으로 확인합니다.</p>
+          </article>
+          <article>
+            <span>04</span>
+            <strong>이유</strong>
+            <p>방문인구, 지하철 접근성, 경쟁 수준 등 핵심 이유를 확인합니다.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="insight" class="section snowflake-section">
+        <div class="section-heading">
+          <p class="eyebrow">Insights</p>
+          <h2>복잡한 상권 데이터를 창업 의사결정 결과로 변환했습니다</h2>
+          <p>
+            상권 여기어때는 비전문가가 직접 여러 지표를 해석하지 않아도, 추천 결과와 이유를 통해 다음 행동을 판단할 수 있도록 설계되었습니다.
+          </p>
+        </div>
+        <div class="achievement-grid snowflake-effect-grid">
+          <article>
+            <strong>지역 중심 업종 추천</strong>
+            <span>특정 지역에서 어떤 업종이 적합한지 순위로 제시합니다.</span>
+          </article>
+          <article>
+            <strong>업종 중심 입지 추천</strong>
+            <span>특정 업종에 유리한 서울시 지역을 추천 확률로 비교합니다.</span>
+          </article>
+          <article>
+            <strong>추천 이유 제공</strong>
+            <span>방문인구, 지하철 접근성, 경쟁 수준 등 핵심 feature를 설명합니다.</span>
+          </article>
+          <article>
+            <strong>창업 리스크 감소</strong>
+            <span>지역-업종 불일치와 유망 입지 누락 가능성을 줄이는 데 기여합니다.</span>
+          </article>
+        </div>
+        <div class="formula-card snowflake-problem-line">
+          <strong>데이터 조회 도구가 아니라, 창업 의사결정 지원 도구로 설계했습니다.</strong>
+        </div>
+      </section>
+
+      <section id="result" class="section snowflake-section">
+        <div class="section-heading">
+          <p class="eyebrow">Result</p>
+          <h2>Snowflake 기반 End-to-End 상권 추천 AI 서비스를 구현했습니다</h2>
+          <p>
+            데이터 수집·전처리·모델 학습·Snowflake 배포·배치 추론·추천 후처리·Streamlit 대시보드까지 이어지는 실제 데이터 서비스 구조를 구현했습니다.
+          </p>
+        </div>
+        <div class="result-layout">
+          <div class="result-copy">
+            <h3>핵심 구현 성과</h3>
+            <ul class="check-list">
+              <li>행정동 × 업종 × 분기 단위 학습 데이터 생성</li>
+              <li>인구, 방문인구, 지하철, 부동산, 경쟁 점포 데이터 통합</li>
+              <li>Logistic Regression, Random Forest, XGBoost 모델 비교</li>
+              <li>Snowflake Model Registry 모델 등록 및 Batch Inference 실행</li>
+              <li>추천 결과 Top N 테이블과 Streamlit 대시보드 구현</li>
+              <li>업종 → 지역, 지역 → 업종 양방향 추천 기능 구현</li>
+            </ul>
+          </div>
+          <figure class="wide-media snowflake-result-card">
+            <img src="참고소스/snowflake/ppt-assets/analysis-report-card.png" alt="상권 여기어때 분석 리포트 카드">
+            <figcaption>추천 확률, Top N, 핵심 추천 이유를 함께 제공하는 분석 리포트</figcaption>
+          </figure>
+        </div>
+        <div class="video-panel snowflake-video-panel">
+          <span class="panel-label">Demo Video</span>
+          <div class="video-frame">
+            <iframe src="https://www.youtube.com/embed/9D3gzJiI-kM" title="상권 여기어때 데모 영상" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="snowflake-lesson-card">
+          <span class="panel-label">What I Learned</span>
+          <h3>모델 성능만큼 중요한 것은 예측 결과를 사용자가 이해할 수 있는 추천 결과로 바꾸는 과정이었습니다</h3>
+          <p>
+            데이터를 어떤 단위로 구조화하고, 추론 결과를 어떤 테이블로 저장하며, 사용자가 어떤 화면에서 어떤 이유와 함께 판단하게 할지까지 설계해야 실제 서비스가 된다는 점을 배웠습니다.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Park Minseo Portfolio</p>
+    </footer>
+  </body>
+</html>
