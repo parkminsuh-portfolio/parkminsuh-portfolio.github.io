@@ -2202,6 +2202,12 @@ figcaption {
   aspect-ratio: 16 / 9;
 }
 
+.video-frame--shorts {
+  max-width: 420px;
+  margin: 0 auto;
+  aspect-ratio: 9 / 16;
+}
+
 .video-frame iframe {
   display: block;
   width: 100%;
