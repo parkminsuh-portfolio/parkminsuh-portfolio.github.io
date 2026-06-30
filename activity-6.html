@@ -314,7 +314,7 @@
             사용자가 클릭한 좌표에 따라 다음 페이지 함수로 이동하도록 설계했습니다.
           </p>
         </div>
-        <div class="aigame-implementation-layout">
+        <div class="aigame-implementation-layout aigame-implementation-layout--steps-only">
           <div class="process-flow process-flow--vertical aigame-process" aria-label="Pygame 처리 흐름">
             <article>
               <span>01</span>
@@ -336,15 +336,6 @@
               <strong>장면 전환</strong>
               <p>선택 결과에 따라 지상 대피 또는 건물 대피 흐름으로 이어지게 했습니다.</p>
             </article>
-          </div>
-          <div class="paperbank-code-card aigame-code-card">
-            <span class="panel-label">Structure</span>
-            <pre><code>start_page()
-  -> show_scene_image()
-  -> wait_click()
-  -> branch_to_next_page()
-  -> ending_page()</code></pre>
-            <p>한글 텍스트는 렌더링 안정성을 위해 이미지로 구성하고, 클릭 좌표 기반 이벤트로 화면 전환을 처리했습니다.</p>
           </div>
         </div>
       </section>
@@ -460,6 +451,7 @@
     </main>
 
     <footer class="site-footer">
+      <a class="text-link" href="index.html">메인으로 돌아가기</a>
       <p>Park Minseo Portfolio</p>
     </footer>
   </body>
