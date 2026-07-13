@@ -272,35 +272,174 @@
         </div>
       </section>
 
-      <section class="section aigame-section">
+      <section class="section aigame-section aigame-character-section">
         <div class="section-heading">
-          <p class="eyebrow">Iteration</p>
-          <h2>AI 이미지의 한계를 확인하고 프롬프트와 도구를 바꿔가며 개선했습니다</h2>
+          <p class="eyebrow">Character Consistency Design</p>
+          <h2>캐릭터 설정표와 시점 레퍼런스를 먼저 설계해 장면 간 일관성을 높였습니다</h2>
           <p>
-            생성형 AI는 빠르게 이미지를 만들 수 있었지만, 같은 인물을 일관되게 유지하거나 장면 디테일을 정확히 맞추는 데 한계가 있었습니다.
-            팀은 결과물을 검토하며 프롬프트를 더 구체화하고, 필요한 경우 생성 플랫폼을 바꾸는 방식으로 보완했습니다.
+            AI로 장면 이미지를 바로 생성하면 영상마다 캐릭터의 얼굴, 의상, 성격이 달라지거나 주요 인물보다 엑스트라가 더 두드러지는 문제가 있었습니다.
+            이를 단순히 프롬프트를 반복 수정하는 방식으로 해결하지 않고, 스토리 분석을 바탕으로 캐릭터의 설정과 시각적 기준을 먼저 정의한 뒤 장면 이미지를 생성하는 제작 프로세스를 설계했습니다.
           </p>
         </div>
-        <div class="aigame-output-layout">
-          <figure class="wide-media aigame-scroll-media">
-            <img src="참고소스/AI게임/ppt-assets/ai-output-set-01.png" alt="AI 생성 이미지 여러 장을 정리한 슬라이드">
-            <figcaption>Stable Diffusion으로 생성한 장면 후보</figcaption>
-          </figure>
-          <figure class="wide-media aigame-scroll-media">
-            <img src="참고소스/AI게임/ppt-assets/playground-result-set.png" alt="Playground로 생성한 다양한 장면 이미지">
-            <figcaption>Playground를 활용해 보완한 장면 후보</figcaption>
-          </figure>
+
+        <div class="aigame-character-block">
+          <div class="section-heading section-heading--compact">
+            <p class="eyebrow">Character Bible</p>
+            <h3>다섯 명의 가족 캐릭터를 스토리에 맞게 사전 설계했습니다</h3>
+            <p>
+              게임의 주요 등장인물은 엄마, 아빠, 누나, 남동생, 여동생으로 구성된 다섯 명의 가족 캐릭터입니다.
+              각 인물이 장면마다 다른 사람처럼 표현되지 않도록 외형뿐 아니라 성격, 특기, 지능, 탐구력, 가족 내 역할과 행동 방식을 캐릭터 설정표로 정리했습니다.
+            </p>
+            <p>
+              예를 들어 탐구력이 높은 캐릭터는 재난 상황에서 주변을 먼저 관찰하고 단서를 확인하도록 설정하고, 행동력이 높은 캐릭터는 가족의 이동을 주도하도록 정의했습니다.
+              이후 이미지 생성 프롬프트마다 해당 배역의 설정을 고정 정보로 포함해, 장면이 달라져도 캐릭터가 스토리에 맞는 일관된 행동과 표정을 보이도록 했습니다.
+            </p>
+          </div>
+          <div class="component-grid aigame-character-grid">
+            <article>
+              <span class="panel-label">01 Family Role</span>
+              <h3>가족 내 역할</h3>
+              <p>엄마, 아빠, 누나, 남동생, 여동생의 가족 내 역할 정의</p>
+            </article>
+            <article>
+              <span class="panel-label">02 Personality</span>
+              <h3>성격과 반응</h3>
+              <p>성격, 감정 표현 방식, 위기 상황에서의 반응 고정</p>
+            </article>
+            <article>
+              <span class="panel-label">03 Ability</span>
+              <h3>능력 설정</h3>
+              <p>특기, 지능, 탐구력 등 스토리 전개에 영향을 주는 특성 설정</p>
+            </article>
+            <article>
+              <span class="panel-label">04 Visual Identity</span>
+              <h3>외형 기준</h3>
+              <p>얼굴형, 헤어스타일, 의상, 연령대 등 외형 기준 고정</p>
+            </article>
+          </div>
         </div>
-        <div class="problem-comparison">
+
+        <div class="aigame-character-block">
+          <div class="two-column two-column--balanced">
+            <div>
+              <p class="eyebrow">Reference Generation</p>
+              <h3>정면 이미지를 기준으로 캐릭터별 45도 레퍼런스를 제작했습니다</h3>
+              <p>
+                같은 캐릭터라도 정면 이미지에서 단순히 “인물을 45도로 돌려 달라”고 지시하면 얼굴형과 이목구비가 달라지는 문제가 있었습니다.
+                이를 줄이기 위해 먼저 각 캐릭터의 정면 이미지를 생성하고, 정면 이미지를 기준 레퍼런스로 사용했습니다.
+              </p>
+              <p>
+                이후 캐릭터 자체를 회전시키는 방식이 아니라, 관찰자와 캐릭터의 상대적인 위치를 설명하는 방식으로 시점을 정의했습니다.
+              </p>
+            </div>
+            <blockquote class="aigame-reference-quote">
+              다른 관찰자가 이 캐릭터의 오른쪽 45도 위치에 서 있을 때 보이는 모습을 그려 주세요.
+              정면 이미지와 동일한 얼굴형, 머리 모양, 의상과 고유 특징을 유지해 주세요.
+            </blockquote>
+          </div>
+          <p class="aigame-character-note">
+            이와 같은 프롬프트를 사용해 오른쪽 45도 시점의 이미지를 생성하고, 정면 이미지와 얼굴·의상·특징이 일치하는 결과만 선별했습니다.
+            이 작업을 다섯 명의 가족 캐릭터에게 각각 적용해, 장면의 카메라 시점이 달라져도 동일한 인물로 인식할 수 있는 캐릭터별 레퍼런스 세트를 구축했습니다.
+          </p>
+        </div>
+
+        <div class="aigame-character-block">
+          <div class="section-heading section-heading--compact">
+            <p class="eyebrow">Prompt Structure</p>
+            <h3>변하지 않는 설정과 장면마다 달라지는 조건을 분리했습니다</h3>
+            <p>
+              프롬프트는 모든 장면에서 유지해야 하는 고정 정보와 장면에 따라 바뀌는 가변 정보로 나누어 작성했습니다.
+              이를 통해 새로운 장면을 생성할 때도 캐릭터의 핵심 설정이 누락되지 않도록 했습니다.
+            </p>
+          </div>
+          <div class="aigame-prompt-structure">
+            <article>
+              <span class="panel-label">Fixed Information</span>
+              <p>캐릭터 이름, 가족 내 역할, 얼굴형, 헤어스타일, 의상, 성격, 특기, 지능, 탐구력</p>
+            </article>
+            <article>
+              <span class="panel-label">Scene Variables</span>
+              <p>현재 행동, 표정, 시선, 자세, 다른 인물과의 관계, 카메라 위치, 배경과 조명</p>
+            </article>
+            <article>
+              <span class="panel-label">Negative Conditions</span>
+              <p>얼굴 왜곡, 다른 의상, 과도한 그림자, 비대칭적인 눈, 불필요한 인물 추가, 캐릭터 특징 변경</p>
+            </article>
+          </div>
+          <p class="aigame-character-note">
+            승인된 캐릭터 이미지는 이후 장면 생성의 기준 이미지로 다시 사용했습니다.
+            영상이 연결되는 경우에는 이전 장면의 마지막 프레임을 다음 장면의 시작 기준으로 활용해, 이미지뿐 아니라 장면 전환에서도 인물과 공간의 연속성이 유지되도록 했습니다.
+          </p>
+        </div>
+
+        <div class="problem-comparison aigame-visual-validation">
           <article>
-            <span class="panel-label">Limit</span>
-            <h3>인물 통일성과 디테일 부족</h3>
-            <p>같은 캐릭터를 여러 장면에서 유지하기 어렵고, 원하는 행동이나 배경 요소가 정확히 반영되지 않는 경우가 있었습니다.</p>
+            <span class="panel-label">Visual Hierarchy</span>
+            <h3>엑스트라는 실루엣으로 표현해 주요 인물의 비중을 조절했습니다</h3>
+            <p>
+              여러 명의 엑스트라가 등장하는 장면에서는 생성 모델이 각 인물의 얼굴과 의상을 개별적으로 묘사하면서 화면이 복잡해지고,
+              주요 가족 캐릭터의 얼굴이 변형되거나 시선이 분산되는 문제가 발생했습니다.
+            </p>
+            <p>
+              스토리에서 엑스트라는 배경 상황을 전달하는 역할이므로, 세부적인 얼굴과 의상을 표현하지 않고 사람의 형체만 알아볼 수 있는 그림자 또는 실루엣으로 생성하도록 프롬프트를 설계했습니다.
+              엑스트라의 크기와 명암도 주요 인물보다 낮게 설정해, 등장인물의 수가 많아도 관객의 시선이 가족 캐릭터와 핵심 사건에 집중되도록 장면의 시각적 우선순위를 조절했습니다.
+            </p>
           </article>
           <article>
-            <span class="panel-label">Improve</span>
-            <h3>프롬프트 구체화와 역할 재분배</h3>
-            <p>장면별 핵심 요소를 더 자세히 작성하고, 이미지 생성 담당과 게임 구현 담당을 나누어 반복 속도를 높였습니다.</p>
+            <span class="panel-label">Validation Process</span>
+            <h3>한 번에 하나의 조건만 변경하며 결과를 비교했습니다</h3>
+            <p>
+              생성 결과에 문제가 생겼을 때 여러 조건을 동시에 수정하면 어떤 변화가 결과에 영향을 주었는지 판단하기 어려웠습니다.
+              따라서 캐릭터 시점, 표정, 행동, 조명, 카메라 움직임과 같은 요소를 한 번에 하나씩 변경하며 결과를 비교했습니다.
+            </p>
+            <ul class="check-list">
+              <li>정면과 45도 이미지에서 동일한 인물로 인식되는가</li>
+              <li>장면이 달라져도 얼굴, 헤어스타일, 의상이 유지되는가</li>
+              <li>설정한 성격과 능력이 행동과 표정에 반영되는가</li>
+              <li>주요 가족 캐릭터와 엑스트라의 시각적 비중이 구분되는가</li>
+              <li>이전 장면과 배경, 조명, 인물 위치가 자연스럽게 연결되는가</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="aigame-character-result">
+          <span class="panel-label">Result</span>
+          <h3>생성 전에 기준을 설계해 캐릭터의 정체성과 스토리 몰입도를 높였습니다</h3>
+          <p>
+            캐릭터 설정표, 정면·45도 레퍼런스, 고정 프롬프트 정보와 엑스트라 표현 규칙을 사전에 설계한 결과,
+            다섯 명의 가족 캐릭터가 여러 장면에서도 동일한 외형과 성격을 유지하도록 개선할 수 있었습니다.
+          </p>
+          <p>
+            이 경험을 통해 생성형 AI의 품질은 긴 프롬프트를 작성하는 것만으로 높아지는 것이 아니라, 스토리에 필요한 정보를 먼저 구조화하고,
+            모델이 반복해서 참고할 기준과 검증 과정을 설계할 때 안정적으로 확보할 수 있음을 배웠습니다.
+          </p>
+        </div>
+
+        <div class="aigame-image-card-grid" aria-label="캐릭터 일관성 설계 자료 카드">
+          <article>
+            <span>Image 01</span>
+            <h3>다섯 명의 가족 캐릭터 설정표</h3>
+            <p>엄마, 아빠, 누나, 남동생, 여동생의 외형과 성격, 특기, 지능, 탐구력을 사전에 정의했습니다.</p>
+          </article>
+          <article>
+            <span>Image 02</span>
+            <h3>캐릭터 정면 기준 이미지</h3>
+            <p>장면별 이미지 생성에서 외형이 달라지지 않도록 캐릭터별 기준 이미지를 제작했습니다.</p>
+          </article>
+          <article>
+            <span>Image 03</span>
+            <h3>정면 이미지와 45도 시점 레퍼런스 비교</h3>
+            <p>관찰자의 상대 위치를 구체적으로 설명해 동일한 캐릭터의 45도 이미지를 생성했습니다.</p>
+          </article>
+          <article>
+            <span>Image 04</span>
+            <h3>주요 캐릭터와 실루엣 엑스트라 장면</h3>
+            <p>비중이 낮은 엑스트라는 그림자 형태로 단순화해 주요 가족 캐릭터에 시선이 집중되도록 했습니다.</p>
+          </article>
+          <article>
+            <span>Image 05</span>
+            <h3>프롬프트 구조</h3>
+            <p>캐릭터의 외형·성격은 고정하고, 행동·표정·카메라 조건만 장면별로 변경했습니다.</p>
           </article>
         </div>
       </section>
